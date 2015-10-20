@@ -22,6 +22,11 @@ Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual
 Plugin 'bling/vim-airline' " cool status line
 Plugin 'suan/vim-instant-markdown' " markdown preview in browser
 
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+
+" Plugin 'vim-scripts/Conque-Shell'
+Plugin 'vim-scripts/Conque-GDB'
+
 Plugin 'jaxbot/browserlink.vim'
 
 Plugin 'Valloric/YouCompleteMe' " completion tool
@@ -31,7 +36,7 @@ Plugin 'Valloric/YouCompleteMe' " completion tool
 
 "Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'flomotlik/vim-livereload'
+" Plugin 'flomotlik/vim-livereload'
 
 " Plugin 'ArchipelProject/xmpppy'
 
@@ -173,3 +178,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 2
 
 let g:easytags_syntax_keyword = 'always'
+
+
+
+
