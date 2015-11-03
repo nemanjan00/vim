@@ -12,6 +12,8 @@ call vundle#begin()
 " let vundle manage vundle
 Plugin 'VundleVim/Vundle.vim'
 
+Bundle 'joonty/vdebug.git'
+
 " utilities
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
@@ -20,7 +22,7 @@ Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'bling/vim-airline' " cool status line
-Plugin 'suan/vim-instant-markdown' " markdown preview in browser
+" Plugin 'suan/vim-instant-markdown' " markdown preview in browser
 
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
@@ -41,13 +43,16 @@ Plugin 'mattn/emmet-vim'
 " Plugin 'ArchipelProject/xmpppy'
 
 Plugin 'tomtom/tcomment_vim'
-Plugin 'Townk/vim-autoclose'
+" Plugin 'Townk/vim-autoclose'
 
 " colorschemes
 Plugin 'sickill/vim-monokai'
 
 call vundle#end()
 filetype plugin indent on
+
+autocmd FileType markdown set complete+=kspell
+autocmd FileType markdown setlocal spell spelllang=en_us
 
 set nocompatible " not compatible with vi
 set autoread " detect when a file is changed
