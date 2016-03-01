@@ -14,7 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Bundle 'joonty/vdebug.git'
 
-" utilities
 Plugin 'kien/ctrlp.vim' " fuzzy find files
 Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -22,29 +21,15 @@ Plugin 'benmills/vimux'
 Plugin 'tpope/vim-fugitive' " the ultimate git helper
 Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plugin 'bling/vim-airline' " cool status line
-" Plugin 'suan/vim-instant-markdown' " markdown preview in browser
-
+Plugin 'StanAngeloff/php.vim' " PHP syntax
+Plugin 'scrooloose/syntastic'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
-" Plugin 'vim-scripts/Conque-Shell'
 Plugin 'vim-scripts/Conque-GDB'
-
 Plugin 'jaxbot/browserlink.vim'
-
 Plugin 'Valloric/YouCompleteMe' " completion tool
-
-" Plugin 'xolox/vim-misc'
-" Plugin 'xolox/vim-easytags'
-
-"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mattn/emmet-vim'
-" Plugin 'flomotlik/vim-livereload'
-
-" Plugin 'ArchipelProject/xmpppy'
-
 Plugin 'tomtom/tcomment_vim'
-" Plugin 'Townk/vim-autoclose'
-
+Plugin 'KabbAmine/vCoolor.vim'
 " colorschemes
 Plugin 'sickill/vim-monokai'
 
@@ -64,7 +49,7 @@ set backspace=indent,eol,start
 let mapleader = ','
 
 " Tab control
-set noexpandtab " tabs ftw
+set noexpandtab " TABS!!!
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
@@ -129,6 +114,8 @@ nnoremap <silent> k gk
 nmap \t :set ts=4 sts=4 sw=4 noet<cr>
 nmap \s :set ts=4 sts=4 sw=4 et<cr>
 
+let g:vcoolor_map = '<C-c>'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -183,7 +170,4 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 2
 
 let g:easytags_syntax_keyword = 'always'
-
-
-
 
