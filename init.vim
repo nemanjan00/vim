@@ -1,1 +1,0 @@
-/home/nemanjan00/.vimrc

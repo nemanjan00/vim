@@ -5,35 +5,32 @@
 " load plugins from vundle
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/bundle')
 
-call vundle#begin()
+"Bundle 'joonty/vdebug.git'
 
-" let vundle manage vundle
-Plugin 'VundleVim/Vundle.vim'
-
-Bundle 'joonty/vdebug.git'
-
-Plugin 'kien/ctrlp.vim' " fuzzy find files
-Plugin 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'benmills/vimux'
-Plugin 'tpope/vim-fugitive' " the ultimate git helper
-Plugin 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
-Plugin 'bling/vim-airline' " cool status line
-Plugin 'StanAngeloff/php.vim' " PHP syntax
-Plugin 'scrooloose/syntastic'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'vim-scripts/Conque-GDB'
-Plugin 'jaxbot/browserlink.vim'
-Plugin 'Valloric/YouCompleteMe' " completion tool
-Plugin 'mattn/emmet-vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'KabbAmine/vCoolor.vim'
+Plug 'kien/ctrlp.vim' " fuzzy find files
+Plug 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'benmills/vimux'
+Plug 'tpope/vim-fugitive' " the ultimate git helper
+Plug 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
+Plug 'bling/vim-airline' " cool status line
+Plug 'StanAngeloff/php.vim' " PHP syntax
+Plug 'scrooloose/syntastic'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'vim-scripts/Conque-GDB'
+Plug 'jaxbot/browserlink.vim'
+Plug 'Valloric/YouCompleteMe' " completion tool
+Plug 'mattn/emmet-vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'KabbAmine/vCoolor.vim'
 " colorschemes
-Plugin 'sickill/vim-monokai'
+Plug 'sickill/vim-monokai'
 
-call vundle#end()
+" Add plugins to &runtimepath
+call plug#end()
+
 filetype plugin indent on
 
 autocmd FileType markdown set complete+=kspell
