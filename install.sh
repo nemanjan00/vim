@@ -9,4 +9,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ln -s ~/.vim ~/.config//nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-vim +PluginInstall +qall
+vim +PlugInstall +qall
