@@ -1,10 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" load plugins from vundle
-filetype off
-
 call plug#begin('~/.vim/bundle')
 
 "Bundle 'joonty/vdebug.git'
@@ -26,18 +22,22 @@ Plug 'mattn/emmet-vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'KabbAmine/vCoolor.vim'
 " colorschemes
-Plug 'sickill/vim-monokai'
+Plug 'gosukiwi/vim-atom-dark'
 
 " Add plugins to &runtimepath
 call plug#end()
 
-filetype plugin indent on
-
 autocmd FileType markdown set complete+=kspell
 autocmd FileType markdown setlocal spell spelllang=en_us
 
-set nocompatible " not compatible with vi
+" Use linux clipboard
+set clipboard+=unnamedplus
+
 set autoread " detect when a file is changed
+
+" Display spaces and tabs
+set list
+set listchars=tab:\|\ ,space:␣
 
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
@@ -53,12 +53,8 @@ set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
+" Display relative numbers
 set relativenumber
-
-set clipboard=unnamed
-
-" faster redrawing
-set ttyfast
 
 " code folding settings
 set foldmethod=syntax " fold based on indent
@@ -86,7 +82,7 @@ set mat=2 " how many tenths of a second to blink
 syntax enable
 
 set encoding=utf8
-colorscheme monokai
+colorscheme atom-dark-256
 
 set number
 
