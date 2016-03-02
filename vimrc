@@ -3,9 +3,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 
-"Bundle 'joonty/vdebug.git'
+" Debugger
 
-Plug 'kien/ctrlp.vim' " fuzzy find files
+Plug 'joonty/vdebug'
+
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'benmills/vimux'
@@ -13,19 +15,40 @@ Plug 'tpope/vim-fugitive' " the ultimate git helper
 Plug 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
 Plug 'bling/vim-airline' " cool status line
 Plug 'StanAngeloff/php.vim' " PHP syntax
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-scripts/Conque-GDB'
 Plug 'jaxbot/browserlink.vim'
-Plug 'Valloric/YouCompleteMe' " completion tool
+
 Plug 'mattn/emmet-vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'KabbAmine/vCoolor.vim'
+
+Plug 'gorodinskiy/vim-coloresque'
+
+if !has('nvim')
+	Plug 'Valloric/YouCompleteMe' " completion tool
+endif
+
+if has('nvim')
+	Plug('Shougo/deoplete.nvim')
+
+	" Autocomplete
+
+	Plug 'Shougo/neocomplcache'
+
+	Plug 'Shougo/neosnippet.vim'
+	Plug 'Shougo/neosnippet-snippets'
+endif
+
 " colorschemes
 Plug 'gosukiwi/vim-atom-dark'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+" Lint on save
+autocmd! BufWritePost * Neomake
 
 autocmd FileType markdown set complete+=kspell
 autocmd FileType markdown setlocal spell spelllang=en_us
@@ -94,9 +117,9 @@ set laststatus=2 " show the satus line all the time
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-t> :%retab!<cr>
 
 map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
-
 map <leader>wc :wincmd q<cr>
 
 " moving up and down work as you would expect
@@ -121,16 +144,16 @@ map <C-l> :call WinMove('l')<cr>
 " Window movement shortcuts
 " move to the window in the direction shown, or create a new window
 function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
+	let t:curwin = winnr()
+	exec "wincmd ".a:key
+	if (t:curwin == winnr())
+		if (match(a:key,'[jk]'))
+			wincmd v
+		else
+			wincmd s
+		endif
+		exec "wincmd ".a:key
+	endif
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,12 +178,32 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " CtrlP ignore patterns
 let g:ctrlp_custom_ignore = {
-            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$'
-            \ }
+			\ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+			\ 'file': '\.exe$\|\.so$'
+			\ }
 
 " search the nearest ancestor that contains .git, .hg, .svn
+let g:neocomplcache_enable_at_startup = 1
+
 let g:ctrlp_working_path_mode = 2
 
 let g:easytags_syntax_keyword = 'always'
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
