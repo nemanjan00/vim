@@ -26,6 +26,8 @@ Plug 'KabbAmine/vCoolor.vim'
 
 Plug 'gorodinskiy/vim-coloresque'
 
+Plug 'Dinduks/vim-java-get-set'
+
 if !has('nvim')
 	Plug 'Valloric/YouCompleteMe' " completion tool
 endif
@@ -52,6 +54,9 @@ autocmd! BufWritePost * Neomake
 
 autocmd FileType markdown set complete+=kspell
 autocmd FileType markdown setlocal spell spelllang=en_us
+
+" Disable java mappings
+let no_java_maps=''
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -117,6 +122,8 @@ set laststatus=2 " show the satus line all the time
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <C-j> :InsertBothGetterSetter<cr>
+
 map <C-t> :%retab!<cr>
 
 map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
@@ -137,7 +144,7 @@ let g:vcoolor_map = '<C-c>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <C-h> :call WinMove('h')<cr>
-map <C-j> :call WinMove('j')<cr>
+" map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
