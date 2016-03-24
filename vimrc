@@ -9,10 +9,11 @@ Plug 'joonty/vdebug' " Debug for PHP, Python, Ruby, Perl, Tcl and NodeJS
 Plug 'vim-scripts/Conque-GDB' " GDB
 
 Plug 'Shougo/vimproc.vim'
-Plug 'danarye/vim-vebugger'
+Plug 'idanarye/vim-vebugger'
 
 " UI
 
+Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'bling/vim-airline' " cool status line
 
 " File managment and search
@@ -27,6 +28,10 @@ Plug 'StanAngeloff/php.vim' " PHP syntax
 Plug 'benekastah/neomake' " Linter
 Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 
+" Comment
+
+Plug 'scrooloose/nerdcommenter'
+
 " Code generation and helpers
 
 Plug 'mattn/emmet-vim' " Fast HTML
@@ -36,7 +41,7 @@ Plug 'Dinduks/vim-java-get-set' " Java getter/setter generator
 
 " Autocomplete
 
-Plug('Shougo/deoplete.nvim')
+Plug 'Shougo/deoplete.nvim'
 
 Plug 'Shougo/neocomplcache'
 
@@ -123,10 +128,10 @@ set laststatus=2 " show the satus line all the time
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Run
-nmap <C-e> :below 30sp term://./start.sh<cr>i<cr>
+nmap <leader>e :below 30sp term://./start.sh<cr>i<cr>
 
 "Debug
-nmap <C-w> :call JdbStart()<cr>
+nmap <leader>w :call JdbStart()<cr>
 
 map <C-t> :%retab!<cr>
 
