@@ -64,8 +64,10 @@ if has('nvim')
 	autocmd! BufWritePost * Neomake
 endif
 
-" Disable java mappings
-let no_java_maps=''
+let maplocalleader = '.' 
+
+" Disable auto instant markdown
+let g:instant_markdown_autostart = 0
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -153,7 +155,7 @@ let g:vcoolor_map = '<C-c>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <C-h> :call WinMove('h')<cr>
-" map <C-j> :call WinMove('j')<cr>
+map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
