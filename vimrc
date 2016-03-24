@@ -5,28 +5,33 @@ call plug#begin('~/.vim/bundle')
 
 " Debugger
 
-Plug 'joonty/vdebug'
+Plug 'joonty/vdebug' " Debug for PHP, Python, Ruby, Perl, Tcl and NodeJS
+Plug 'vim-scripts/Conque-GDB' " GDB
+
+" UI
+
+Plug 'bling/vim-airline' " cool status line
+
+" File managment and search
 
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'benmills/vimux'
-Plug 'tpope/vim-fugitive' " the ultimate git helper
-Plug 'tpope/vim-commentary' " comment/uncomment lines with gcc or gc in visual mode
-Plug 'bling/vim-airline' " cool status line
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git for nerdtree
+
+" Lint and syntax
+
 Plug 'StanAngeloff/php.vim' " PHP syntax
-Plug 'benekastah/neomake'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'vim-scripts/Conque-GDB'
-Plug 'jaxbot/browserlink.vim'
+Plug 'benekastah/neomake' " Linter
+Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 
-Plug 'mattn/emmet-vim'
-Plug 'tomtom/tcomment_vim'
-Plug 'KabbAmine/vCoolor.vim'
+" Code generation and helpers
 
-Plug 'gorodinskiy/vim-coloresque'
+Plug 'mattn/emmet-vim' " Fast HTML
+Plug 'KabbAmine/vCoolor.vim' " Color insert
+Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
+Plug 'Dinduks/vim-java-get-set' " Java getter/setter generator
 
-Plug 'Dinduks/vim-java-get-set'
+" Neovim/Vim specific
 
 if !has('nvim')
 	Plug 'Valloric/YouCompleteMe' " completion tool
@@ -43,17 +48,21 @@ if has('nvim')
 	Plug 'Shougo/neosnippet-snippets'
 endif
 
+" Markdown
+Plug 'suan/vim-instant-markdown'
+
 " colorschemes
 Plug 'gosukiwi/vim-atom-dark'
 
 " Add plugins to &runtimepath
 call plug#end()
 
-" Lint on save
-autocmd! BufWritePost * Neomake
+filetype plugin on
 
-autocmd FileType markdown set complete+=kspell
-autocmd FileType markdown setlocal spell spelllang=en_us
+if has('nvim')
+	" Lint on save
+	autocmd! BufWritePost * Neomake
+endif
 
 " Disable java mappings
 let no_java_maps=''
@@ -197,9 +206,9 @@ let g:ctrlp_working_path_mode = 2
 let g:easytags_syntax_keyword = 'always'
 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 "imap <expr><TAB>
