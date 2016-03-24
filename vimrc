@@ -8,6 +8,9 @@ call plug#begin('~/.vim/bundle')
 Plug 'joonty/vdebug' " Debug for PHP, Python, Ruby, Perl, Tcl and NodeJS
 Plug 'vim-scripts/Conque-GDB' " GDB
 
+Plug 'Shougo/vimproc.vim'
+Plug 'danarye/vim-vebugger'
+
 " UI
 
 Plug 'bling/vim-airline' " cool status line
@@ -31,22 +34,14 @@ Plug 'KabbAmine/vCoolor.vim' " Color insert
 Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
 Plug 'Dinduks/vim-java-get-set' " Java getter/setter generator
 
-" Neovim/Vim specific
+" Autocomplete
 
-if !has('nvim')
-	Plug 'Valloric/YouCompleteMe' " completion tool
-endif
+Plug('Shougo/deoplete.nvim')
 
-if has('nvim')
-	Plug('Shougo/deoplete.nvim')
+Plug 'Shougo/neocomplcache'
 
-	" Autocomplete
-
-	Plug 'Shougo/neocomplcache'
-
-	Plug 'Shougo/neosnippet.vim'
-	Plug 'Shougo/neosnippet-snippets'
-endif
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " Markdown
 Plug 'suan/vim-instant-markdown'
@@ -59,15 +54,13 @@ call plug#end()
 
 filetype plugin on
 
-if has('nvim')
-	" Lint on save
-	autocmd! BufWritePost * Neomake
-endif
+" Lint on save
+autocmd! BufWritePost * Neomake
 
+let g:vebugger_leader = "č"
 let maplocalleader = '.' 
+let mapleader = ','
 
-" Disable auto instant markdown
-let g:instant_markdown_autostart = 0
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -80,9 +73,6 @@ set listchars=tab:\|\ ,space:␣
 
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
-
-" set a map leader for more key combos
-let mapleader = ','
 
 " Tab control
 set noexpandtab " TABS!!!
@@ -123,8 +113,6 @@ syntax enable
 set encoding=utf8
 colorscheme atom-dark-256
 
-set number
-
 set autoindent " automatically set indent of new line
 set smartindent
 
@@ -133,7 +121,12 @@ set laststatus=2 " show the satus line all the time
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-j> :InsertBothGetterSetter<cr>
+
+" Run
+nmap <C-e> :below 30sp term://./start.sh<cr>i<cr>
+
+"Debug
+nmap <C-w> :call JdbStart()<cr>
 
 map <C-t> :%retab!<cr>
 
@@ -174,9 +167,17 @@ function! WinMove(key)
 	endif
 endfunction
 
+function! JdbStart()
+	!gradle build
+	call vebugger#jdb#start('com.mycompany.app.App',{'classpath':'build/classes/main','srcpath':'src/main/java','args':[]})
+endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Disable auto instant markdown
+let g:instant_markdown_autostart = 0
 
 " close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=0
