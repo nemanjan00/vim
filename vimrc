@@ -3,69 +3,75 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 
-" Debugger
+	" Debugger
 
-Plug 'joonty/vdebug' " Debug for PHP, Python, Ruby, Perl, Tcl and NodeJS
-Plug 'vim-scripts/Conque-GDB' " GDB
+	Plug 'joonty/vdebug', { 'for': ['php'] } " Debug for PHP
 
-Plug 'Shougo/vimproc.vim'
-Plug 'idanarye/vim-vebugger'
+	Plug 'Shougo/vimproc.vim'
+	Plug 'idanarye/vim-vebugger', { 'for': ['java', 'c', 'cpp'] }  " JDB and GDB
 
-" UI
+	" UI
 
-Plug 'rhysd/nyaovim-markdown-preview'
-Plug 'bling/vim-airline' " cool status line
+	Plug 'rhysd/nyaovim-markdown-preview', { 'for': ['md'] }
+	Plug 'bling/vim-airline' " cool status line
 
-" File managment and search
+	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
+	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
 
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-Plug 'Xuyuanp/nerdtree-git-plugin' " Git for nerdtree
+	" File managment and search
 
-" Lint and syntax
+	Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+	Plug 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
+	Plug 'Xuyuanp/nerdtree-git-plugin' " Git for nerdtree
 
-Plug 'StanAngeloff/php.vim' " PHP syntax
-Plug 'benekastah/neomake' " Linter
-Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
+	" Lint and syntax
 
-" Comment
+	Plug 'benekastah/neomake' " Linter
+	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 
-Plug 'scrooloose/nerdcommenter'
+	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 
-" Code generation and helpers
+	" Comment
 
-Plug 'mattn/emmet-vim' " Fast HTML
-Plug 'KabbAmine/vCoolor.vim' " Color insert
-Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
-Plug 'Dinduks/vim-java-get-set' " Java getter/setter generator
+	Plug 'scrooloose/nerdcommenter'
 
-" Autocomplete
+	" Code generation and helpers
 
-Plug 'Shougo/deoplete.nvim'
+	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml'] } " Fast HTML
+	Plug 'Dinduks/vim-java-get-set', { 'for': 'java' } " Java getter/setter generator
 
-Plug 'Shougo/neocomplcache'
+	Plug 'KabbAmine/vCoolor.vim' " Color insert
 
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+	" Autocomplete
 
-" Markdown
-Plug 'suan/vim-instant-markdown'
+	Plug 'Shougo/deoplete.nvim'
 
-" colorschemes
-Plug 'gosukiwi/vim-atom-dark'
+	Plug 'Shougo/neocomplcache'
 
-" Add plugins to &runtimepath
+	Plug 'Shougo/neosnippet.vim'
+	Plug 'Shougo/neosnippet-snippets'
+
+	" colorschemes
+	Plug 'gosukiwi/vim-atom-dark'
+
 call plug#end()
 
-filetype plugin on
+" On save
+autocmd! BufWritePost * Neomake " Lint
 
-" Lint on save
-autocmd! BufWritePost * Neomake
+" On open
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t")) " Change tmux title
+
+" Shortcut settings
 
 let g:vebugger_leader = "č"
+
 let maplocalleader = '.' 
 let mapleader = ','
 
+" Settings
+
+filetype plugin on
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -181,6 +187,9 @@ endfunction
 " => Plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 " Disable auto instant markdown
 let g:instant_markdown_autostart = 0
 
@@ -195,8 +204,8 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 
 " map fuzzyfinder (CtrlP) plugin
 " nmap <silent> <leader>t :CtrlP<cr>
-nmap <silent> <leader>r :CtrlPBuffer<cr>
-let g:ctrlp_map='<leader>t'
+" nmap <silent> <leader>r :CtrlPBuffer<cr>
+" let g:ctrlp_map='<leader>t'
 let g:ctrlp_dotfiles=1
 let g:ctrlp_working_path_mode = 'ra'
 
@@ -228,6 +237,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+	set conceallevel=2 concealcursor=niv
 endif
 
