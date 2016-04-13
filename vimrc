@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 
+	" Plug 'juanes852/Eclim-for-Neovim'
+
 	" Debugger
 
 	Plug 'joonty/vdebug', { 'for': ['php'] } " Debug for PHP
@@ -12,7 +14,9 @@ call plug#begin('~/.vim/bundle')
 
 	" UI
 
-	Plug 'rhysd/nyaovim-markdown-preview', { 'for': ['md'] }
+	Plug 'suan/vim-instant-markdown'
+
+	Plug 'rhysd/nyaovim-markdown-preview', { 'for': ['markdown'] }
 	Plug 'bling/vim-airline' " cool status line
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
@@ -52,7 +56,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'Shougo/neosnippet-snippets'
 
 	" colorschemes
-	Plug 'gosukiwi/vim-atom-dark'
+	Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -122,7 +126,11 @@ set mat=2 " how many tenths of a second to blink
 syntax enable
 
 set encoding=utf8
-colorscheme atom-dark-256
+
+set background=dark
+colorscheme PaperColor
+
+let g:airline_theme='PaperColor'
 
 set autoindent " automatically set indent of new line
 set smartindent
