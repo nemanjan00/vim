@@ -44,8 +44,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml'] } " Fast HTML
 	Plug 'Dinduks/vim-java-get-set', { 'for': 'java' } " Java getter/setter generator
 
-	Plug 'KabbAmine/vCoolor.vim' " Color insert
-
 	" Autocomplete
 
 	Plug 'Shougo/deoplete.nvim'
@@ -110,6 +108,8 @@ set foldlevel=1
 " => User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set conceallevel=0
+
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
@@ -162,8 +162,6 @@ nnoremap <silent> k gk
 " helpers for dealing with other people's code
 nmap \t :set ts=4 sts=4 sw=4 noet<cr>
 nmap \s :set ts=4 sts=4 sw=4 et<cr>
-
-let g:vcoolor_map = '<C-c>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
@@ -248,6 +246,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " For conceal markers.
 if has('conceal')
-	set conceallevel=2 concealcursor=niv
+	set conceallevel=0 concealcursor=niv
 endif
 
