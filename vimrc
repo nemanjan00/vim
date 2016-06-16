@@ -2,22 +2,16 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
-
-	" Plug 'juanes852/Eclim-for-Neovim'
-
 	" Debugger
 
 	Plug 'joonty/vdebug', { 'for': ['php'] } " Debug for PHP
-
-	Plug 'Shougo/vimproc.vim'
-	Plug 'idanarye/vim-vebugger', { 'for': ['java', 'c', 'cpp'] }  " JDB and GDB
 
 	" UI
 
 	Plug 'suan/vim-instant-markdown'
 
 	Plug 'rhysd/nyaovim-markdown-preview', { 'for': ['markdown'] }
-	Plug 'bling/vim-airline' " cool status line
+	Plug 'bling/vim-airline'
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
@@ -42,31 +36,34 @@ call plug#begin('~/.vim/bundle')
 	" Code generation and helpers
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml'] } " Fast HTML
-	Plug 'Dinduks/vim-java-get-set', { 'for': 'java' } " Java getter/setter generator
+	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-repeat'
 
 	" Autocomplete
+	Plug 'ervandew/supertab'
 
-	Plug 'Shougo/deoplete.nvim'
+	Plug 'Valloric/YouCompleteMe'
 
-	Plug 'Shougo/neocomplcache'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
 
-	Plug 'Shougo/neosnippet.vim'
-	Plug 'Shougo/neosnippet-snippets'
+	Plug 'shawncplus/phpcomplete.vim'
+	Plug 'ahayman/vim-nodejs-complete', { 'for': 'js' } " PHP syntax
+
 
 	" colorschemes
 	Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
-" On save
+" Neomake
 autocmd! BufWritePost * Neomake " Lint
 
-" On open
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t")) " Change tmux title
+" Tmux
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+set autoread " detect when a file is changed
 
 " Shortcut settings
-
-let g:vebugger_leader = "č"
 
 let maplocalleader = '.' 
 let mapleader = ','
@@ -78,13 +75,11 @@ filetype plugin on
 " Use linux clipboard
 set clipboard+=unnamedplus
 
-set autoread " detect when a file is changed
-
 " Display spaces and tabs
 set list
 set listchars=tab:\|\ ,space:␣
 
-" make backspace behave in a sane manner
+" Make backspace behave in a sane manner
 set backspace=indent,eol,start
 
 " Tab control
@@ -108,6 +103,7 @@ set foldlevel=1
 " => User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Conceal
 set conceallevel=0
 
 " Searching
@@ -141,13 +137,8 @@ set laststatus=2 " show the satus line all the time
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Run
-nmap <leader>e :below 30sp term://./start.sh<cr>i<cr>
-
-"Debug
-nmap <leader>w :call JdbStart()<cr>
-
-map <C-t> :%retab!<cr>
+map <C-t> :%retab<cr>
+map <C-M-t> :set tabstop=2<cr> :%retab<cr> :set tabstop=4<cr>
 
 map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
 map <leader>wc :wincmd q<cr>
@@ -159,12 +150,8 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
-" helpers for dealing with other people's code
-nmap \t :set ts=4 sts=4 sw=4 noet<cr>
-nmap \s :set ts=4 sts=4 sw=4 et<cr>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Functions
+" => Window movement
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <C-h> :call WinMove('h')<cr>
@@ -187,29 +174,26 @@ function! WinMove(key)
 	endif
 endfunction
 
-function! JdbStart()
-	!gradle build
-	call vebugger#jdb#start('com.mycompany.app.App',{'classpath':'build/classes/main','srcpath':'src/main/java','args':[]})
-endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Autocomplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin settings
+" => CtrlP
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-" Disable auto instant markdown
-let g:instant_markdown_autostart = 0
-
-" close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=0
-" show hidden files in NERDTree
-let NERDTreeShowHidden=1
-" Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
 
 " map fuzzyfinder (CtrlP) plugin
 " nmap <silent> <leader>t :CtrlP<cr>
@@ -224,28 +208,28 @@ let g:ctrlp_custom_ignore = {
 			\ 'file': '\.exe$\|\.so$'
 			\ }
 
-" search the nearest ancestor that contains .git, .hg, .svn
-let g:neocomplcache_enable_at_startup = 1
-
 let g:ctrlp_working_path_mode = 2
 
 let g:easytags_syntax_keyword = 'always'
 
-" Plugin key-mappings.
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen=0
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" Toggle NERDTree
+nmap <silent> <leader>k :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
 
-" For conceal markers.
-if has('conceal')
-	set conceallevel=0 concealcursor=niv
-endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Instant markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Disable auto instant markdown
+let g:instant_markdown_autostart = 0
+
 
