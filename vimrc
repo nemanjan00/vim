@@ -10,7 +10,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'suan/vim-instant-markdown'
 
-	Plug 'rhysd/nyaovim-markdown-preview', { 'for': ['markdown'] }
+	Plug 'rhysd/nyaovim-markdown-preview'
 	Plug 'bling/vim-airline'
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
@@ -40,16 +40,14 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-repeat'
 
 	" Autocomplete
-	Plug 'ervandew/supertab'
 
-	Plug 'Valloric/YouCompleteMe'
+	Plug 'Shougo/deoplete.nvim'
 
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
+	Plug 'Shougo/vimproc'
+	Plug 'Shougo/unite.vim'
 
-	Plug 'shawncplus/phpcomplete.vim'
-	Plug 'ahayman/vim-nodejs-complete', { 'for': 'js' } " PHP syntax
-
+	Plug 'm2mdas/phpcomplete-extended'
+	Plug 'ahayman/vim-nodejs-complete'
 
 	" colorschemes
 	Plug 'NLKNguyen/papercolor-theme'
@@ -137,14 +135,16 @@ set laststatus=2 " show the satus line all the time
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <C-t> :%retab<cr>
-map <C-M-t> :set tabstop=2<cr> :%retab<cr> :set tabstop=4<cr>
+map <C-t> :%retab!<cr>
+map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
 
 map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
 map <leader>wc :wincmd q<cr>
 
-" Exit terminal mode
-tnoremap <Esc> <C-\><C-n>
+if has("nvim")
+	" Exit terminal mode
+	tnoremap <Esc> <C-\><C-n>
+endif
 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
@@ -178,15 +178,12 @@ endfunction
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.php = '[^Č]'
+let g:deoplete#omni#input_patterns.javascript = '[^Č]'
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:phpcomplete_index_composer_command = '/usr/bin/composer'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP
