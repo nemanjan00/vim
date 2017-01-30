@@ -1,3 +1,5 @@
+au BufNewFile,BufRead *.ejs set filetype=html
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -8,7 +10,7 @@ call plug#begin('~/.vim/bundle')
 
 	" UI
 
-	Plug 'suan/vim-instant-markdown'
+	Plug 'suan/vim-instant-markdown', { 'for': ['markdown'] }
 
 	Plug 'rhysd/nyaovim-markdown-preview'
 	Plug 'bling/vim-airline'
@@ -41,16 +43,20 @@ call plug#begin('~/.vim/bundle')
 
 	" Autocomplete
 
-	Plug 'Shougo/deoplete.nvim'
+	function! DoRemote(arg)
+		UpdateRemotePlugins
+	endfunction
 
-	Plug 'Shougo/vimproc'
-	Plug 'Shougo/unite.vim'
+	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
 
-	Plug 'm2mdas/phpcomplete-extended'
-	Plug 'ahayman/vim-nodejs-complete'
-
+	Plug 'Shougo/neosnippet'
+	Plug 'Shougo/neosnippet-snippets'
+	
 	" colorschemes
+	Plug 'vim-airline/vim-airline-themes'
 	Plug 'NLKNguyen/papercolor-theme'
+
+	Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -59,6 +65,7 @@ autocmd! BufWritePost * Neomake " Lint
 
 " Tmux
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+
 set autoread " detect when a file is changed
 
 " Shortcut settings
@@ -101,9 +108,6 @@ set foldlevel=1
 " => User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Conceal
-set conceallevel=0
-
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
@@ -124,7 +128,7 @@ set encoding=utf8
 set background=dark
 colorscheme PaperColor
 
-let g:airline_theme='PaperColor'
+let g:airline_theme='papercolor'
 
 set autoindent " automatically set indent of new line
 set smartindent
@@ -134,6 +138,8 @@ set laststatus=2 " show the satus line all the time
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <C-y> :%y+<cr>
 
 map <C-t> :%retab!<cr>
 map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
@@ -174,16 +180,39 @@ function! WinMove(key)
 	endif
 endfunction
 
+function! CommentLine()
+	let original_cursor_position = getpos('.')
+	
+	exe "normal ^i//\e"
+
+	call setpos('.', original_cursor_position)
+
+	exe "normal 2l"
+endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.php = '[^Č]'
-let g:deoplete#omni#input_patterns.javascript = '[^Č]'
 
-let g:phpcomplete_index_composer_command = '/usr/bin/composer'
+" Plugin key-mappings.
+imap <C-k>		 <Plug>(neosnippet_expand_or_jump)
+smap <C-k>		 <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>		 <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \		 "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+if has('conceal')
+	set conceallevel=2 concealcursor=niv
+	autocmd FileType json set conceallevel=0
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP
@@ -208,6 +237,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 2
 
 let g:easytags_syntax_keyword = 'always'
+
+set wildignore+=*/.git,*/node_modules,*/vendor
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
