@@ -4,6 +4,9 @@ au BufNewFile,BufRead *.ejs set filetype=html
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
+
+	Plug 'airblade/vim-gitgutter'
+
 	" Debugger
 
 	Plug 'joonty/vdebug', { 'for': ['php'] } " Debug for PHP
@@ -41,6 +44,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-repeat'
 
+
 	" Autocomplete
 
 	function! DoRemote(arg)
@@ -48,6 +52,9 @@ call plug#begin('~/.vim/bundle')
 	endfunction
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+	Plug 'HerringtonDarkholme/yats.vim'
+	Plug 'Shougo/vimproc.vim'
+	Plug 'Quramy/tsuquyomi'
 
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
@@ -193,6 +200,14 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+  let g:deoplete#enable_ignore_case = 1
+  let g:deoplete#auto_complete_start_length = 0
+  let g:auto_complete_start_length = 0
+  let g:deoplete#enable_refresh_always = 1
+  let g:deoplete#enable_debug = 1
+  let g:deoplete#enable_profile = 1
+call deoplete#enable_logging('DEBUG', '/home/nemanjan00/deoplete.log')
 
 let g:deoplete#enable_at_startup = 1
 
