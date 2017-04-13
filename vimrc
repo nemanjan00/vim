@@ -62,8 +62,12 @@ call plug#begin('~/.vim/bundle')
 	" colorschemes
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'NLKNguyen/papercolor-theme'
+	Plug 'dracula/vim'
+
+	" Efficiency
 
 	Plug 'wakatime/vim-wakatime'
+	Plug 'malithsen/trello-vim'
 
 call plug#end()
 
@@ -133,7 +137,9 @@ syntax enable
 set encoding=utf8
 
 set background=dark
-colorscheme PaperColor
+" colorscheme PaperColor
+
+color dracula
 
 let g:airline_theme='papercolor'
 
@@ -200,14 +206,6 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-  let g:deoplete#enable_ignore_case = 1
-  let g:deoplete#auto_complete_start_length = 0
-  let g:auto_complete_start_length = 0
-  let g:deoplete#enable_refresh_always = 1
-  let g:deoplete#enable_debug = 1
-  let g:deoplete#enable_profile = 1
-call deoplete#enable_logging('DEBUG', '/home/nemanjan00/deoplete.log')
 
 let g:deoplete#enable_at_startup = 1
 
