@@ -60,9 +60,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'Shougo/neosnippet-snippets'
 	
 	" colorschemes
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'NLKNguyen/papercolor-theme'
-	Plug 'dracula/vim'
+	" Plug 'vim-airline/vim-airline-themes'
+	" Plug 'NLKNguyen/papercolor-theme'
+	Plug 'idlua/vim'
 
 	" Efficiency
 
@@ -119,6 +119,8 @@ set foldlevel=1
 " => User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set mouse=a
+
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
@@ -141,7 +143,7 @@ set background=dark
 
 color dracula
 
-let g:airline_theme='papercolor'
+let g:airline_theme='dracula'
 
 set autoindent " automatically set indent of new line
 set smartindent
