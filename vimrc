@@ -6,10 +6,6 @@ au BufNewFile,BufRead *.ejs set filetype=html
 call plug#begin('~/.vim/bundle')
 	Plug 'airblade/vim-gitgutter'
 
-	" Debugger
-
-	Plug 'joonty/vdebug', { 'for': ['php'] } " Debug for PHP
-
 	" UI
 
 	Plug 'bling/vim-airline'
@@ -19,7 +15,8 @@ call plug#begin('~/.vim/bundle')
 
 	" File managment and search
 
-	Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
 
 	" Lint and syntax
 
@@ -46,22 +43,29 @@ call plug#begin('~/.vim/bundle')
 	endfunction
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+	Plug 'ervandew/supertab'
+
+	Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
+	Plug 'carlitux/deoplete-ternjs'
 
 	Plug 'HerringtonDarkholme/yats.vim'
-	Plug 'Shougo/vimproc.vim'
-	Plug 'Quramy/tsuquyomi'
+	Plug 'mhartington/nvim-typescript'
 
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 	
 	" Colorschemes
 
-	Plug 'idlua/vim'
+	Plug 'dracula/vim'
 
 	" Efficiency
 
 	Plug 'wakatime/vim-wakatime'
+	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
+	" Must be loaded at the end
+
+	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Neomake
@@ -132,11 +136,11 @@ syntax enable
 set encoding=utf8
 
 set background=dark
-" colorscheme PaperColor
 
 color dracula
 
 let g:airline_theme='dracula'
+let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
 set smartindent
@@ -222,50 +226,16 @@ if has('conceal')
 	autocmd FileType json set conceallevel=0
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CtrlP
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF
 
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
+map <C-p> :FZF<cr>
+"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-" map fuzzyfinder (CtrlP) plugin
-" nmap <silent> <leader>t :CtrlP<cr>
-" nmap <silent> <leader>r :CtrlPBuffer<cr>
-" let g:ctrlp_map='<leader>t'
-let g:ctrlp_dotfiles=1
-let g:ctrlp_working_path_mode = 'ra'
+map <C-M-P> :Ag<cr>
 
-" CtrlP ignore patterns
-let g:ctrlp_custom_ignore = {
-			\ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
-			\ 'file': '\.exe$\|\.so$'
-			\ }
+" Gist
 
-let g:ctrlp_working_path_mode = 2
-
-let g:easytags_syntax_keyword = 'always'
-
-set wildignore+=*/.git,*/node_modules,*/vendor
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=0
-" show hidden files in NERDTree
-let NERDTreeShowHidden=1
-" Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Instant markdown
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Disable auto instant markdown
-let g:instant_markdown_autostart = 0
-
+map <C-g> :Gist -p<cr>
+map <C-M-g> :Gist<cr>
+let g:gist_open_browser_after_post = 1
 
