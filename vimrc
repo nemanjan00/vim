@@ -4,7 +4,6 @@ au BufNewFile,BufRead *.ejs set filetype=html
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
-
 	Plug 'airblade/vim-gitgutter'
 
 	" Debugger
@@ -13,9 +12,6 @@ call plug#begin('~/.vim/bundle')
 
 	" UI
 
-	Plug 'suan/vim-instant-markdown', { 'for': ['markdown'] }
-
-	Plug 'rhysd/nyaovim-markdown-preview'
 	Plug 'bling/vim-airline'
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
@@ -24,14 +20,12 @@ call plug#begin('~/.vim/bundle')
 	" File managment and search
 
 	Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-	Plug 'scrooloose/nerdtree' " file drawer, open with :NERDTreeToggle
-	Plug 'Xuyuanp/nerdtree-git-plugin' " Git for nerdtree
 
 	" Lint and syntax
 
 	Plug 'benekastah/neomake' " Linter
-	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 
+	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 
 	" Comment
@@ -40,10 +34,10 @@ call plug#begin('~/.vim/bundle')
 
 	" Code generation and helpers
 
-	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml'] } " Fast HTML
+	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs'] } " Fast HTML
+
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-repeat'
-
 
 	" Autocomplete
 
@@ -52,6 +46,7 @@ call plug#begin('~/.vim/bundle')
 	endfunction
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'Shougo/vimproc.vim'
 	Plug 'Quramy/tsuquyomi'
@@ -59,15 +54,13 @@ call plug#begin('~/.vim/bundle')
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 	
-	" colorschemes
-	" Plug 'vim-airline/vim-airline-themes'
-	" Plug 'NLKNguyen/papercolor-theme'
+	" Colorschemes
+
 	Plug 'idlua/vim'
 
 	" Efficiency
 
 	Plug 'wakatime/vim-wakatime'
-	Plug 'malithsen/trello-vim'
 
 call plug#end()
 
