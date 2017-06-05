@@ -8,7 +8,8 @@ call plug#begin('~/.vim/bundle')
 
 	" UI
 
-	Plug 'bling/vim-airline'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
@@ -56,7 +57,7 @@ call plug#begin('~/.vim/bundle')
 	
 	" Colorschemes
 
-	Plug 'dracula/vim'
+	Plug 'altercation/vim-colors-solarized'
 
 	" Efficiency
 
@@ -67,6 +68,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
+
+set nocompatible
 
 " Neomake
 autocmd! BufWritePost * Neomake " Lint
@@ -136,10 +139,9 @@ syntax enable
 set encoding=utf8
 
 set background=dark
+colorscheme solarized
 
-color dracula
-
-let g:airline_theme='dracula'
+let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
