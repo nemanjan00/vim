@@ -74,6 +74,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
+	Plug 'tpope/vim-fugitive'
+
 	" Must be loaded at the end
 
 	Plug 'ryanoasis/vim-devicons'
