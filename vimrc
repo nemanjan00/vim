@@ -4,20 +4,27 @@ au BufNewFile,BufRead *.ejs set filetype=html
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
-	Plug 'airblade/vim-gitgutter'
-
 	" UI
 
+	Plug 'airblade/vim-gitgutter'
+
 	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
+
+	" Colorschemes
+
+	Plug 'iCyMind/NeoSolarized'
+
+	Plug 'vim-airline/vim-airline-themes'
 
 	" File managment and search
 
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
+
+	Plug 'brooth/far.vim'
 
 	" Lint and syntax
 
@@ -31,6 +38,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'scrooloose/nerdcommenter'
 
 	" Code generation and helpers
+
+	Plug 'mzlogin/vim-markdown-toc'
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs'] } " Fast HTML
 
@@ -46,6 +55,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
 	Plug 'ervandew/supertab'
 
+	Plug 'artur-shaik/vim-javacomplete2'
+
 	Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 	Plug 'carlitux/deoplete-ternjs'
 
@@ -54,14 +65,13 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
-	
-	" Colorschemes
 
-	Plug 'altercation/vim-colors-solarized'
+	Plug 'cyansprite/Extract'
 
 	" Efficiency
 
 	Plug 'wakatime/vim-wakatime'
+
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 	" Must be loaded at the end
@@ -69,13 +79,18 @@ call plug#begin('~/.vim/bundle')
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+set termguicolors
+
+set t_8f=^[[38;2;%lu;%lu;%lumsolider
+set t_8b=^[[48;2;%lu;%lu;%lum
+
 set nocompatible
 
 " Neomake
 autocmd! BufWritePost * Neomake " Lint
 
-" Tmux
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 set autoread " detect when a file is changed
 
@@ -139,7 +154,7 @@ syntax enable
 set encoding=utf8
 
 set background=dark
-colorscheme solarized
+colorscheme NeoSolarized
 
 let g:airline_theme='solarized'
 let g:airline_powerline_fonts = 1
