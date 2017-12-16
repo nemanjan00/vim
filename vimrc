@@ -6,7 +6,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 call plug#begin('~/.vim/bundle')
 	" UI
 
-	Plug 'airblade/vim-gitgutter'
+	Plug 'mhinz/vim-signify'
 
 	Plug 'vim-airline/vim-airline'
 
