@@ -122,7 +122,7 @@ set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
 " Display relative numbers
-set relativenumber
+set number relativenumber
 
 " code folding settings
 set foldmethod=syntax " fold based on indent
