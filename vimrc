@@ -57,7 +57,6 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'artur-shaik/vim-javacomplete2'
 
-	Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 	Plug 'carlitux/deoplete-ternjs'
 
 	Plug 'HerringtonDarkholme/yats.vim'
@@ -66,7 +65,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 
-	Plug 'cyansprite/Extract'
+	"Plug 'cyansprite/Extract'
 
 	" Efficiency
 
@@ -81,12 +80,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-set termguicolors
+set nocompatible " No need for Vi specific commands
 
-set t_8f=^[[38;2;%lu;%lu;%lumsolider
-set t_8b=^[[48;2;%lu;%lu;%lum
-
-set nocompatible
+" Commands
 
 " Neomake
 autocmd! BufWritePost * Neomake " Lint
