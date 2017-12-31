@@ -6,6 +6,8 @@ au BufNewFile,BufRead *.ejs set filetype=html
 call plug#begin('~/.vim/bundle')
 	" UI
 
+	Plug 'johngrib/vim-game-code-break'
+
 	Plug 'mhinz/vim-signify'
 
 	Plug 'vim-airline/vim-airline'
@@ -57,6 +59,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'artur-shaik/vim-javacomplete2'
 
+	Plug 'ternjs/tern_for_vim'
 	Plug 'carlitux/deoplete-ternjs'
 
 	Plug 'HerringtonDarkholme/yats.vim'
