@@ -17,7 +17,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Colorschemes
 
-	Plug 'iCyMind/NeoSolarized'
+	Plug 'trusktr/seti.vim'
 
 	Plug 'vim-airline/vim-airline-themes'
 
@@ -82,6 +82,11 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
+
+set t_AB=^[[48;5;%dm
+set t_AF=^[[38;5;%dm
+
+set t_Co=256
 
 set nocompatible " No need for Vi specific commands
 
@@ -155,9 +160,9 @@ syntax enable
 set encoding=utf8
 
 set background=dark
-colorscheme NeoSolarized
+colorscheme seti
 
-let g:airline_theme='solarized'
+let g:airline_theme='seti'
 let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
