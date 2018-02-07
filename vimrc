@@ -17,6 +17,8 @@ call plug#begin('~/.vim/bundle')
 
 	" Colorschemes
 
+	Plug 'tpope/vim-unimpaired'
+
 	Plug 'reedes/vim-colors-pencil'
 
 	Plug 'vim-airline/vim-airline-themes'
