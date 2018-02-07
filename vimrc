@@ -17,7 +17,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Colorschemes
 
-	Plug 'trusktr/seti.vim'
+	Plug 'reedes/vim-colors-pencil'
 
 	Plug 'vim-airline/vim-airline-themes'
 
@@ -160,9 +160,9 @@ syntax enable
 set encoding=utf8
 
 set background=dark
-colorscheme seti
+colorscheme pencil
 
-let g:airline_theme='seti'
+let g:airline_theme='pencil'
 let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
