@@ -204,7 +204,7 @@ map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+call arpeggio#map('i', '', 0, 'fn', 'function')
 
 " Window movement shortcuts
 " move to the window in the direction shown, or create a new window
