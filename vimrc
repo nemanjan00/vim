@@ -74,6 +74,8 @@ call plug#begin('~/.vim/bundle')
 
 	" Efficiency
 
+	Plug 'kana/vim-arpeggio'
+
 	Plug 'wakatime/vim-wakatime'
 
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
@@ -201,6 +203,8 @@ map <C-h> :call WinMove('h')<cr>
 map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
+
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
 " Window movement shortcuts
 " move to the window in the direction shown, or create a new window
