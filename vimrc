@@ -180,6 +180,8 @@ set laststatus=2 " show the satus line all the time
 
 map <C-y> :%y+<cr>
 
+map <C-m> :make<cr>
+
 map <C-t> :%retab!<cr>
 map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
 
