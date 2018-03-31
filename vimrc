@@ -205,6 +205,7 @@ call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
 call arpeggio#map('i', '', 0, 'fn', 'function')
 call arpeggio#map('i', '', 0, 'rq', 'require')
+call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Window movement
@@ -245,6 +246,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
 
 " Plugin key-mappings.
 imap <C-k>		 <Plug>(neosnippet_expand_or_jump)
