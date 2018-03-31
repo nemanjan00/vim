@@ -6,9 +6,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 call plug#begin('~/.vim/bundle')
 	" UI
 
-	Plug 'johngrib/vim-game-code-break'
-
-	Plug 'mhinz/vim-signify'
+	Plug 'mhinz/vim-signify' " Git changes in gutter
 
 	Plug 'vim-airline/vim-airline'
 
@@ -52,14 +50,17 @@ call plug#begin('~/.vim/bundle')
 
 	" Autocomplete
 
+	Plug 'autozimu/LanguageClient-neovim', {
+		\ 'branch': 'next',
+		\ 'do': 'bash install.sh',
+		\ }
+
 	function! DoRemote(arg)
 		UpdateRemotePlugins
 	endfunction
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
-	Plug 'ervandew/supertab'
-
-	Plug 'artur-shaik/vim-javacomplete2'
+	"Plug 'ervandew/supertab'
 
 	Plug 'ternjs/tern_for_vim'
 	Plug 'carlitux/deoplete-ternjs'
@@ -96,11 +97,10 @@ set nocompatible " No need for Vi specific commands
 
 " Commands
 
+autocmd FileType asm set ft=nasm
+
 " Neomake
 autocmd! BufWritePost * Neomake " Lint
-
-" Java
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 set autoread " detect when a file is changed
 
@@ -247,6 +247,10 @@ endfunction
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
+
+let g:LanguageClient_serverCommands = {
+	\ 'java': ['jdtls'],
+	\ }
 
 " Plugin key-mappings.
 imap <C-k>		 <Plug>(neosnippet_expand_or_jump)
