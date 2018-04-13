@@ -60,7 +60,7 @@ call plug#begin('~/.vim/bundle')
 	endfunction
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
-	"Plug 'ervandew/supertab'
+	Plug 'ervandew/supertab'
 
 	Plug 'ternjs/tern_for_vim'
 	Plug 'carlitux/deoplete-ternjs'
@@ -86,6 +86,8 @@ call plug#begin('~/.vim/bundle')
 	" Must be loaded at the end
 
 	Plug 'ryanoasis/vim-devicons'
+
+	Plug 'jkramer/vim-checkbox'
 call plug#end()
 
 set t_AB=^[[48;5;%dm
@@ -94,10 +96,6 @@ set t_AF=^[[38;5;%dm
 set t_Co=256
 
 set nocompatible " No need for Vi specific commands
-
-" Commands
-
-autocmd FileType asm set ft=nasm
 
 " Neomake
 autocmd! BufWritePost * Neomake " Lint
@@ -160,6 +158,8 @@ set mat=2 " how many tenths of a second to blink
 
 " switch syntax highlighting on
 syntax enable
+
+autocmd FileType asm set ft=nasm
 
 set encoding=utf8
 
@@ -250,6 +250,7 @@ let g:deoplete#file#enable_buffer_path = 1
 
 let g:LanguageClient_serverCommands = {
 	\ 'java': ['jdtls'],
+	\ 'php': ['phpls']
 	\ }
 
 " Plugin key-mappings.
