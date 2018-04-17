@@ -19,6 +19,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'reedes/vim-colors-pencil'
 
+	Plug 'morhetz/gruvbox'
+
 	Plug 'vim-airline/vim-airline-themes'
 
 	" File managment and search
@@ -164,7 +166,8 @@ autocmd FileType asm set ft=nasm
 set encoding=utf8
 
 set background=dark
-colorscheme pencil
+"colorscheme pencil
+colorscheme gruvbox
 
 let g:airline_theme='pencil'
 let g:airline_powerline_fonts = 1
