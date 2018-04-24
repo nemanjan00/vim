@@ -72,6 +72,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
+	Plug 'nemanjan00/snippets'
 
 	"Plug 'cyansprite/Extract'
 
@@ -169,7 +170,7 @@ set background=dark
 "colorscheme pencil
 colorscheme gruvbox
 
-let g:airline_theme='pencil'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
@@ -286,4 +287,6 @@ map <C-M-P> :Ag<cr>
 map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 let g:gist_open_browser_after_post = 1
+
+hi Normal guibg=NONE ctermbg=NONE
 
