@@ -17,11 +17,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'tpope/vim-unimpaired'
 
-	Plug 'reedes/vim-colors-pencil'
-
 	Plug 'morhetz/gruvbox'
-
-	Plug 'vim-airline/vim-airline-themes'
 
 	" File managment and search
 
@@ -43,7 +39,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Code generation and helpers
 
-	Plug 'mzlogin/vim-markdown-toc'
+	Plug 'mzlogin/vim-markdown-toc', { 'for': ['md']}
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs'] } " Fast HTML
 
@@ -73,8 +69,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 	Plug 'nemanjan00/snippets'
-
-	"Plug 'cyansprite/Extract'
 
 	" Efficiency
 
@@ -166,8 +160,9 @@ autocmd FileType asm set ft=nasm
 
 set encoding=utf8
 
+hi Normal guibg=NONE ctermbg=NONE
+
 set background=dark
-"colorscheme pencil
 colorscheme gruvbox
 
 let g:airline_theme='gruvbox'
@@ -206,7 +201,6 @@ nnoremap <silent> k gk
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-
 call arpeggio#map('i', '', 0, 'fn', 'function')
 call arpeggio#map('i', '', 0, 'rq', 'require')
 call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
@@ -256,7 +250,8 @@ let g:LanguageClient_serverCommands = {
 	\ 'java': ['jdtls'],
 	\ 'c': ['cquery'],
 	\ 'cpp': ['cquery'],
-	\ 'php': ['phpls']
+	\ 'php': ['phpls'],
+	\ 'css': ['css-languageserver --stdio']
 	\ }
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
@@ -292,6 +287,4 @@ map <C-M-P> :Ag<cr>
 map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 let g:gist_open_browser_after_post = 1
-
-hi Normal guibg=NONE ctermbg=NONE
 
