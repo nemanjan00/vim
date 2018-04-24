@@ -254,6 +254,8 @@ let g:deoplete#file#enable_buffer_path = 1
 
 let g:LanguageClient_serverCommands = {
 	\ 'java': ['jdtls'],
+	\ 'c': ['cquery'],
+	\ 'cpp': ['cquery'],
 	\ 'php': ['phpls']
 	\ }
 
