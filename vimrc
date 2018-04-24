@@ -259,6 +259,9 @@ let g:LanguageClient_serverCommands = {
 	\ 'php': ['phpls']
 	\ }
 
+let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
+let g:LanguageClient_settingsPath = '/home/nemanjan00/.config/nvim/settings.json'
+
 " Plugin key-mappings.
 imap <C-k>		 <Plug>(neosnippet_expand_or_jump)
 smap <C-k>		 <Plug>(neosnippet_expand_or_jump)
