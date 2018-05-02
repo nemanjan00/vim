@@ -17,7 +17,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'tpope/vim-unimpaired'
 
-	Plug 'morhetz/gruvbox'
+	Plug 'dracula/vim'
 
 	" File managment and search
 
@@ -39,7 +39,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Code generation and helpers
 
-	Plug 'mzlogin/vim-markdown-toc', { 'for': ['md']}
+	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']}
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs'] } " Fast HTML
 
@@ -160,12 +160,12 @@ autocmd FileType asm set ft=nasm
 
 set encoding=utf8
 
+set background=dark
+colorscheme dracula
+
 hi Normal guibg=NONE ctermbg=NONE
 
-set background=dark
-colorscheme gruvbox
-
-let g:airline_theme='gruvbox'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
@@ -178,8 +178,6 @@ set laststatus=2 " show the satus line all the time
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 map <C-y> :%y+<cr>
-
-map <C-m> :make<cr>
 
 map <C-t> :%retab!<cr>
 map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
@@ -201,6 +199,7 @@ nnoremap <silent> k gk
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
 call arpeggio#map('i', '', 0, 'fn', 'function')
 call arpeggio#map('i', '', 0, 'rq', 'require')
 call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
