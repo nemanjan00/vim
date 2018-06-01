@@ -7,15 +7,16 @@ call plug#begin('~/.vim/bundle')
 	" UI
 
 	Plug 'mhinz/vim-signify' " Git changes in gutter
+	Plug 'tpope/vim-fugitive'
 
 	Plug 'vim-airline/vim-airline'
 
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
 
-	" Colorschemes
+	Plug 'ryanoasis/vim-devicons'
 
-	Plug 'tpope/vim-unimpaired'
+	" Colorschemes
 
 	Plug 'dracula/vim'
 
@@ -71,6 +72,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'nemanjan00/snippets'
 
 	" Efficiency
+
+	Plug 'editorconfig/editorconfig-vim'
 
 	Plug 'kana/vim-arpeggio'
 
@@ -157,6 +160,7 @@ set mat=2 " how many tenths of a second to blink
 syntax enable
 
 autocmd FileType asm set ft=nasm
+autocmd FileType ini set ft=dosini
 
 set encoding=utf8
 
@@ -165,7 +169,6 @@ colorscheme dracula
 
 hi Normal guibg=NONE ctermbg=NONE
 
-let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
 set autoindent " automatically set indent of new line
