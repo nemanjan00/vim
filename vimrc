@@ -49,6 +49,9 @@ call plug#begin('~/.vim/bundle')
 
 	" Autocomplete
 
+
+	Plug 'jiangmiao/auto-pairs'
+
 	Plug 'autozimu/LanguageClient-neovim', {
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
