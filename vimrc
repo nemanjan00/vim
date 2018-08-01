@@ -16,6 +16,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'ryanoasis/vim-devicons'
 
+	Plug 'itchyny/calendar.vim'
+
 	" Colorschemes
 
 	Plug 'dracula/vim'
@@ -80,8 +82,6 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'kana/vim-arpeggio'
 
-	Plug 'wakatime/vim-wakatime'
-
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 
 	Plug 'tpope/vim-fugitive'
@@ -104,6 +104,8 @@ set nocompatible " No need for Vi specific commands
 autocmd! BufWritePost * Neomake " Lint
 
 set autoread " detect when a file is changed
+
+let g:calendar_google_calendar = 1
 
 " Shortcut settings
 
