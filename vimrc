@@ -51,13 +51,14 @@ call plug#begin('~/.vim/bundle')
 
 	" Autocomplete
 
-
 	Plug 'jiangmiao/auto-pairs'
 
 	Plug 'autozimu/LanguageClient-neovim', {
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
 		\ }
+
+	Plug 'sunaku/vim-dasht'
 
 	function! DoRemote(arg)
 		UpdateRemotePlugins
@@ -252,6 +253,10 @@ endfunction
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
+
+let g:dasht_filetype_docsets = {}
+
+let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 
 let g:LanguageClient_serverCommands = {
 	\ 'java': ['jdtls'],
