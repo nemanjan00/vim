@@ -16,11 +16,13 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'ryanoasis/vim-devicons'
 
-	Plug 'itchyny/calendar.vim'
+	Plug 'vimwiki/vimwiki'
 
 	" Colorschemes
 
 	Plug 'dracula/vim'
+
+	Plug 'skywind3000/vim-keysound'
 
 	" File managment and search
 
@@ -166,6 +168,7 @@ set mat=2 " how many tenths of a second to blink
 syntax enable
 
 autocmd FileType asm set ft=nasm
+autocmd FileType conf set ft=dosini
 autocmd FileType ini set ft=dosini
 
 set encoding=utf8
@@ -181,6 +184,9 @@ set autoindent " automatically set indent of new line
 set smartindent
 
 set laststatus=2 " show the satus line all the time
+
+let g:keysound_py_version = 3
+let g:keysound_theme = 'typewriter'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mappings
