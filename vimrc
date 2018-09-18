@@ -1,5 +1,3 @@
-au BufNewFile,BufRead *.ejs set filetype=html
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,7 +21,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'dracula/vim'
 
 	Plug 'skywind3000/vim-keysound'
-
 	" File managment and search
 
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -37,6 +34,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
+	Plug 'posva/vim-vue'
 
 	" Comment
 
@@ -46,7 +44,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']}
 
-	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs'] } " Fast HTML
+	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue'] } " Fast HTML
 
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-repeat'
@@ -61,6 +59,11 @@ call plug#begin('~/.vim/bundle')
 		\ }
 
 	Plug 'sunaku/vim-dasht'
+	Plug 'dbeniamine/cheat.sh-vim'
+
+	Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+	Plug 'idanarye/vim-vebugger'
+	Plug 'vim-vdebug/vdebug'
 
 	function! DoRemote(arg)
 		UpdateRemotePlugins
@@ -171,6 +174,8 @@ autocmd FileType asm set ft=nasm
 autocmd FileType conf set ft=dosini
 autocmd FileType ini set ft=dosini
 
+au BufNewFile,BufRead *.ejs set filetype=html
+
 set encoding=utf8
 
 set background=dark
@@ -269,7 +274,9 @@ let g:LanguageClient_serverCommands = {
 	\ 'c': ['cquery'],
 	\ 'cpp': ['cquery'],
 	\ 'php': ['phpls'],
-	\ 'css': ['css-languageserver --stdio']
+	\ 'css': ['css-languageserver --stdio'],
+	\ 'sh': ['bash-language-server', 'start'],
+	\ 'go': ['/usr/bin/go-langserver']
 	\ }
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 

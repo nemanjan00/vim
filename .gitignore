@@ -2,4 +2,6 @@
 /bundle
 /init.vim
 .netrwhist
+/swap
+/colors
 
