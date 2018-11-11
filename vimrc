@@ -117,6 +117,9 @@ set nolazyredraw " don't redraw while executing macros
 
 set magic " Set magic on, for regex
 
+set autoindent " automatically set indent of new line
+set smartindent
+
 set mat=2 " how many tenths of a second to blink
 
 set background=dark
@@ -127,9 +130,6 @@ hi Normal guibg=NONE ctermbg=NONE
 set noshowmode
 
 let g:airline_powerline_fonts = 1
-
-set autoindent " automatically set indent of new line
-set smartindent
 
 set laststatus=2 " show the satus line all the time
 
@@ -163,14 +163,15 @@ let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 
 " Make/lint
 
-let g:gist_open_browser_after_post = 1
-
 source $VIMHOME/functions/myonbattery.vim
 
 if MyOnBattery()
-	call neomake#configure#automake('w')
+	call neomake#configure#automake('rw')
 else
-	call neomake#configure#automake('nw', 1000)
+	call neomake#configure#automake('rnw', 1000)
 endif
 
+" Gist
+
+let g:gist_open_browser_after_post = 1
 
