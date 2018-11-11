@@ -1,58 +1,50 @@
+" Figure out the system Python for Neovim.
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+else
+    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 	" UI
-
 	Plug 'mhinz/vim-signify' " Git changes in gutter
 	Plug 'tpope/vim-fugitive'
-
+	Plug 'metakirby5/codi.vim'
 	Plug 'vim-airline/vim-airline'
-
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
-
 	Plug 'ryanoasis/vim-devicons'
-
 	Plug 'vimwiki/vimwiki'
 
 	" Colorschemes
-
 	Plug 'dracula/vim'
-
 	Plug 'skywind3000/vim-keysound'
-	" File managment and search
 
+	" File managment and search
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
-
 	Plug 'brooth/far.vim'
 
 	" Lint and syntax
-
 	Plug 'benekastah/neomake' " Linter
-
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 	Plug 'posva/vim-vue'
 
 	" Comment
-
 	Plug 'scrooloose/nerdcommenter'
 
 	" Code generation and helpers
-
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']}
-
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue'] } " Fast HTML
-
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-repeat'
 
 	" Autocomplete
-
 	Plug 'jiangmiao/auto-pairs'
-
 	Plug 'autozimu/LanguageClient-neovim', {
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
@@ -60,7 +52,6 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'sunaku/vim-dasht'
 	Plug 'dbeniamine/cheat.sh-vim'
-
 	Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 	Plug 'idanarye/vim-vebugger'
 	Plug 'vim-vdebug/vdebug'
@@ -71,31 +62,23 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
 	Plug 'ervandew/supertab'
-
 	Plug 'ternjs/tern_for_vim'
 	Plug 'carlitux/deoplete-ternjs'
-
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mhartington/nvim-typescript'
-
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 	Plug 'nemanjan00/snippets'
 
 	" Efficiency
-
 	Plug 'editorconfig/editorconfig-vim'
-
 	Plug 'kana/vim-arpeggio'
-
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
-
 	Plug 'tpope/vim-fugitive'
+	Plug 'jamessan/vim-gnupg'
 
 	" Must be loaded at the end
-
 	Plug 'ryanoasis/vim-devicons'
-
 	Plug 'jkramer/vim-checkbox'
 call plug#end()
 
@@ -108,18 +91,14 @@ set nocompatible " No need for Vi specific commands
 
 " Neomake
 autocmd! BufWritePost * Neomake " Lint
-
 set autoread " detect when a file is changed
-
 let g:calendar_google_calendar = 1
 
 " Shortcut settings
-
 let maplocalleader = '.' 
 let mapleader = ','
 
 " Settings
-
 filetype plugin on
 
 " Use linux clipboard
@@ -180,6 +159,7 @@ set encoding=utf8
 
 set background=dark
 colorscheme dracula
+let g:airline_theme='dracula'
 
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -228,35 +208,12 @@ call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
 " => Window movement
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+source $HOME/.vim/functions/winmove.vim
+
 map <C-h> :call WinMove('h')<cr>
 map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
-
-" Window movement shortcuts
-" move to the window in the direction shown, or create a new window
-function! WinMove(key)
-	let t:curwin = winnr()
-	exec "wincmd ".a:key
-	if (t:curwin == winnr())
-		if (match(a:key,'[jk]'))
-			wincmd v
-		else
-			wincmd s
-		endif
-		exec "wincmd ".a:key
-	endif
-endfunction
-
-function! CommentLine()
-	let original_cursor_position = getpos('.')
-	
-	exe "normal ^i//\e"
-
-	call setpos('.', original_cursor_position)
-
-	exe "normal 2l"
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
@@ -269,15 +226,7 @@ let g:dasht_filetype_docsets = {}
 
 let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 
-let g:LanguageClient_serverCommands = {
-	\ 'java': ['jdtls'],
-	\ 'c': ['cquery'],
-	\ 'cpp': ['cquery'],
-	\ 'php': ['phpls'],
-	\ 'css': ['css-languageserver --stdio'],
-	\ 'sh': ['bash-language-server', 'start'],
-	\ 'go': ['/usr/bin/go-langserver']
-	\ }
+source $HOME/.vim/autocomplete/servercommands.vim
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
 let g:LanguageClient_settingsPath = '/home/nemanjan00/.config/nvim/settings.json'
