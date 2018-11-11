@@ -85,17 +85,12 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
-" Neomake
+" Neomake on read and write
 call neomake#configure#automake('rw')
-
-set autoread " detect when a file is changed
 
 " Shortcut settings
 let maplocalleader = '.' 
 let mapleader = ','
-
-" Settings
-filetype plugin on
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -104,9 +99,6 @@ set clipboard+=unnamedplus
 set list
 set listchars=tab:\|\ ,space:␣
 
-" Make backspace behave in a sane manner
-set backspace=indent,eol,start
-
 " Tab control
 set noexpandtab " TABS!!!
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
@@ -114,9 +106,6 @@ set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
-
-" Display relative numbers
-set number relativenumber
 
 " code folding settings
 set foldmethod=syntax " fold based on indent
@@ -127,9 +116,6 @@ set foldlevel=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set mouse=a
-
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter

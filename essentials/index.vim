@@ -6,8 +6,11 @@ else
 endif
 
 set nocompatible " No need for Vi specific commands
+set t_Co=256 " 256 Colors in terminal
+set autoread " detect when a file is changed
+filetype plugin on " Filetype detection
+set backspace=indent,eol,start " Make backspace behave in a sane manner
+set number relativenumber " Display relative numbers
+set mouse=a " Add mouse support
 
-" Terminal settings
-
-set t_Co=256
 
