@@ -1,4 +1,4 @@
-languageClient_serverCommands = {
+let g:LanguageClient_serverCommands = {
 	\ 'elixir': ['/home/nemanjan00/Applications/elixir-ls/release/language_server.sh'],
 	\ 'java': ['jdtls'],
 	\ 'c': ['cquery'],
