@@ -85,9 +85,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
-" Neomake on read and write
-call neomake#configure#automake('rw')
-
 " Shortcut settings
 let maplocalleader = '.' 
 let mapleader = ','
@@ -173,4 +170,13 @@ if has('conceal')
 endif
 
 let g:gist_open_browser_after_post = 1
+
+source $VIMHOME/functions/myonbattery.vim
+
+if MyOnBattery()
+	call neomake#configure#automake('w')
+else
+	call neomake#configure#automake('nw', 1000)
+endif
+
 
