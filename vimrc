@@ -11,59 +11,67 @@ endif
 call plug#begin('~/.vim/bundle')
 	" UI
 	Plug 'mhinz/vim-signify' " Git changes in gutter
-	Plug 'tpope/vim-fugitive'
-	Plug 'metakirby5/codi.vim'
-	Plug 'vim-airline/vim-airline'
+	Plug 'tpope/vim-fugitive' " Git helper
+
+	Plug 'metakirby5/codi.vim' " Realtime interpreter
+	Plug 'vimwiki/vimwiki' " Vim wiki
+	Plug 'tpope/vim-repeat' " Better repeat for key mappings
+
+	Plug 'vim-airline/vim-airline' " Status line
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'vimwiki/vimwiki'
+	Plug 'ryanoasis/vim-devicons' " Icons for file formats
 
 	" Colorschemes
-	Plug 'dracula/vim'
-	Plug 'skywind3000/vim-keysound'
+	Plug 'dracula/vim' " Dracula
+	Plug 'skywind3000/vim-keysound' " Typewriter sound
 
 	" File managment and search
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
-	Plug 'brooth/far.vim'
+	Plug 'junegunn/fzf.vim' " Fuzzy find
+
+	Plug 'brooth/far.vim' " Find and replace
 
 	" Lint and syntax
-	Plug 'benekastah/neomake' " Linter
+	Plug 'benekastah/neomake' " Linter and automake
+
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
-	Plug 'posva/vim-vue'
 
 	" Comment
-	Plug 'scrooloose/nerdcommenter'
+	Plug 'scrooloose/nerdcommenter' " Better comments
 
 	" Code generation and helpers
-	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']}
+	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
+
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue'] } " Fast HTML
-	Plug 'tpope/vim-surround'
-	Plug 'tpope/vim-repeat'
+
+	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	" Autocomplete
-	Plug 'jiangmiao/auto-pairs'
 	Plug 'autozimu/LanguageClient-neovim', {
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
-		\ }
+		\ } " Client for langserver
 
-	Plug 'sunaku/vim-dasht'
-	Plug 'dbeniamine/cheat.sh-vim'
-	Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-	Plug 'idanarye/vim-vebugger'
-	Plug 'vim-vdebug/vdebug'
+	Plug 'sunaku/vim-dasht' " dasht integration for VIM (for offline docs)
+	Plug 'dbeniamine/cheat.sh-vim' " cht.sh in VIM
+
+	Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Async program runner for Vim
+	Plug 'idanarye/vim-vebugger' " Debugger
+
+	Plug 'vim-vdebug/vdebug' " Debugger
 
 	function! DoRemote(arg)
 		UpdateRemotePlugins
 	endfunction
 
-	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')} " Autocomplete
 	Plug 'ervandew/supertab'
+
 	Plug 'ternjs/tern_for_vim'
 	Plug 'carlitux/deoplete-ternjs'
+
 	Plug 'HerringtonDarkholme/yats.vim'
 	Plug 'mhartington/nvim-typescript'
 	Plug 'Shougo/neosnippet'
@@ -82,17 +90,16 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox'
 call plug#end()
 
+set nocompatible " No need for Vi specific commands
+
 set t_AB=^[[48;5;%dm
 set t_AF=^[[38;5;%dm
 
 set t_Co=256
 
-set nocompatible " No need for Vi specific commands
-
 " Neomake
-autocmd! BufWritePost * Neomake " Lint
+call neomake#configure#automake('rw')
 set autoread " detect when a file is changed
-let g:calendar_google_calendar = 1
 
 " Shortcut settings
 let maplocalleader = '.' 
