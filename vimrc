@@ -125,25 +125,14 @@ set nolazyredraw " don't redraw while executing macros
 
 set magic " Set magic on, for regex
 
-set showmatch " show matching braces
 set mat=2 " how many tenths of a second to blink
-
-" switch syntax highlighting on
-syntax enable
-
-autocmd FileType asm set ft=nasm
-autocmd FileType conf set ft=dosini
-autocmd FileType ini set ft=dosini
-
-au BufNewFile,BufRead *.ejs set filetype=html
-
-set encoding=utf8
 
 set background=dark
 colorscheme dracula
 let g:airline_theme='dracula'
 
 hi Normal guibg=NONE ctermbg=NONE
+set noshowmode
 
 let g:airline_powerline_fonts = 1
 
@@ -159,43 +148,7 @@ let g:keysound_theme = 'typewriter'
 " => Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <C-y> :%y+<cr>
-
-map <C-t> :%retab!<cr>
-map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
-
-map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
-map <leader>wc :wincmd q<cr>
-
-if has("nvim")
-	" Exit terminal mode
-	tnoremap <Esc> <C-\><C-n>
-endif
-
-" moving up and down work as you would expect
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Chorded typing
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
-call arpeggio#map('i', '', 0, 'fn', 'function')
-call arpeggio#map('i', '', 0, 'rq', 'require')
-call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Window movement
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-source $VIMHOME/functions/winmove.vim
-
-map <C-h> :call WinMove('h')<cr>
-map <C-j> :call WinMove('j')<cr>
-map <C-k> :call WinMove('k')<cr>
-map <C-l> :call WinMove('l')<cr>
+source $VIMHOME/keybindings.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocomplete
@@ -211,34 +164,13 @@ let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 source $VIMHOME/autocomplete/servercommands.vim
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
-let g:LanguageClient_settingsPath = '/home/nemanjan00/.config/nvim/settings.json'
+let g:LanguageClient_settingsPath = $VIMHOME.'/nvim/settings.json'
 
-" Plugin key-mappings.
-imap <C-k>		 <Plug>(neosnippet_expand_or_jump)
-smap <C-k>		 <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>		 <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \		 "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 if has('conceal')
 	set conceallevel=2 concealcursor=niv
 	autocmd FileType json set conceallevel=0
 endif
 
-" FZF
-
-map <C-p> :FZF<cr>
-map <M-a> :Ag<cr>
-
-" Gist
-
-map <C-g> :Gist -p<cr>
-map <C-M-g> :Gist<cr>
 let g:gist_open_browser_after_post = 1
 

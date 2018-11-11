@@ -13,4 +13,14 @@ set backspace=indent,eol,start " Make backspace behave in a sane manner
 set number relativenumber " Display relative numbers
 set mouse=a " Add mouse support
 
+" switch syntax highlighting on
+syntax enable
+set showmatch " show matching braces
+
+autocmd FileType asm set ft=nasm
+autocmd FileType conf set ft=dosini
+autocmd FileType ini set ft=dosini
+au BufNewFile,BufRead *.ejs set filetype=html
+
+set encoding=utf8
 
