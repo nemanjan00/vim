@@ -13,14 +13,11 @@ call plug#begin('~/.vim/bundle')
 	Plug 'mhinz/vim-signify' " Git changes in gutter
 	Plug 'tpope/vim-fugitive' " Git helper
 
-	Plug 'metakirby5/codi.vim' " Realtime interpreter
-	Plug 'vimwiki/vimwiki' " Vim wiki
 	Plug 'tpope/vim-repeat' " Better repeat for key mappings
 
 	Plug 'vim-airline/vim-airline' " Status line
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
-	Plug 'ryanoasis/vim-devicons' " Icons for file formats
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -67,27 +64,26 @@ call plug#begin('~/.vim/bundle')
 	endfunction
 
 	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')} " Autocomplete
-	Plug 'ervandew/supertab'
+	Plug 'ervandew/supertab' " Tab everywhere
 
-	Plug 'ternjs/tern_for_vim'
-	Plug 'carlitux/deoplete-ternjs'
+	Plug 'carlitux/deoplete-ternjs' " Support for tern
 
-	Plug 'HerringtonDarkholme/yats.vim'
-	Plug 'mhartington/nvim-typescript'
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 	Plug 'nemanjan00/snippets'
 
 	" Efficiency
-	Plug 'editorconfig/editorconfig-vim'
-	Plug 'kana/vim-arpeggio'
-	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
-	Plug 'tpope/vim-fugitive'
-	Plug 'jamessan/vim-gnupg'
+	Plug 'metakirby5/codi.vim' " Realtime interpreter
+	Plug 'vimwiki/vimwiki' " Vim wiki
+	Plug 'blindFS/vim-taskwarrior' " Wrapper around task, for easier usage
+	Plug 'editorconfig/editorconfig-vim' " Standarzided coding style for all IDEs
+	Plug 'kana/vim-arpeggio' " Chord typing
+	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Auto gist
+	Plug 'jamessan/vim-gnupg' " Transparent gpg file editing
 
 	" Must be loaded at the end
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'jkramer/vim-checkbox'
+	Plug 'ryanoasis/vim-devicons' " Icons for file formats
+	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
 set nocompatible " No need for Vi specific commands
