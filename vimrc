@@ -1,9 +1,8 @@
-" Figure out the system Python for Neovim.
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-endif
+" Important vars
+let $VIMHOME = $HOME."/.vim"
+
+" Should be defaults
+source $VIMHOME/essentials/index.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -86,15 +85,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
-set nocompatible " No need for Vi specific commands
-
-set t_AB=^[[48;5;%dm
-set t_AF=^[[38;5;%dm
-
-set t_Co=256
-
 " Neomake
 call neomake#configure#automake('rw')
+
 set autoread " detect when a file is changed
 
 " Shortcut settings
@@ -211,7 +204,7 @@ call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
 " => Window movement
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source $HOME/.vim/functions/winmove.vim
+source $VIMHOME/functions/winmove.vim
 
 map <C-h> :call WinMove('h')<cr>
 map <C-j> :call WinMove('j')<cr>
@@ -229,7 +222,7 @@ let g:dasht_filetype_docsets = {}
 
 let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 
-source $HOME/.vim/autocomplete/servercommands.vim
+source $VIMHOME/autocomplete/servercommands.vim
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
 let g:LanguageClient_settingsPath = '/home/nemanjan00/.config/nvim/settings.json'
