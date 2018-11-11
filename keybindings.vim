@@ -1,12 +1,14 @@
-" Key maps
+" Shortcut settings
+let maplocalleader = '.' 
+let mapleader = ','
 
+" Key maps
 map <C-y> :%y+<cr>
 
 map <C-t> :%retab!<cr>
 map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
 
 map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
-map <leader>wc :wincmd q<cr>
 
 if has("nvim")
 	" Exit terminal mode
@@ -40,6 +42,7 @@ xmap <C-k>		 <Plug>(neosnippet_expand_target)
 " \ pumvisible() ? "\<C-n>" :
 " \ neosnippet#expandable_or_jumpable() ?
 " \		 "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 

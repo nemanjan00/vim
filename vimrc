@@ -85,13 +85,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
-" Shortcut settings
-let maplocalleader = '.' 
-let mapleader = ','
-
-" Use linux clipboard
-set clipboard+=unnamedplus
-
 " Display spaces and tabs
 set list
 set listchars=tab:\|\ ,space:␣
@@ -110,9 +103,11 @@ set foldnestmax=10 " deepest fold is 10 levels
 set nofoldenable " don't fold by default
 set foldlevel=1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => User Interface
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UI/UX
+
+" Use linux clipboard
+set clipboard+=unnamedplus
+
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
@@ -138,36 +133,35 @@ set smartindent
 
 set laststatus=2 " show the satus line all the time
 
+if has('conceal')
+	set conceallevel=2 concealcursor=niv
+	autocmd FileType json set conceallevel=0
+endif
+
 let g:keysound_py_version = 3
 let g:keysound_theme = 'typewriter'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
 
 source $VIMHOME/keybindings.vim
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Autocomplete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocomplete
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
-
-let g:dasht_filetype_docsets = {}
-
-let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 
 source $VIMHOME/autocomplete/servercommands.vim
 
 let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
 let g:LanguageClient_settingsPath = $VIMHOME.'/nvim/settings.json'
 
+" Docs
 
-if has('conceal')
-	set conceallevel=2 concealcursor=niv
-	autocmd FileType json set conceallevel=0
-endif
+let g:dasht_filetype_docsets = {}
+
+let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
+
+" Make/lint
 
 let g:gist_open_browser_after_post = 1
 
