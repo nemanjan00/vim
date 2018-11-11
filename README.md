@@ -1,6 +1,6 @@
 # My Vim config
 
-![](https://github.com/nemanjan00/vim/blob/master/screenshot/vimrc.png?raw=true)
+![Screenshot of Vim](./screenshot/vimrc.png)
 
 ## Table of contents
 
