@@ -252,9 +252,7 @@ endif
 " FZF
 
 map <C-p> :FZF<cr>
-"let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
-map <C-M-P> :Ag<cr>
+map <M-a> :Ag<cr>
 
 " Gist
 
