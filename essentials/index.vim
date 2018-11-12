@@ -5,11 +5,9 @@ else
 	let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 endif
 
-set nocompatible " No need for Vi specific commands
 set t_Co=256 " 256 Colors in terminal
 set autoread " detect when a file is changed
 filetype plugin on " Filetype detection
-set backspace=indent,eol,start " Make backspace behave in a sane manner
 set number relativenumber " Display relative numbers
 set mouse=a " Add mouse support
 

@@ -91,7 +91,6 @@ set listchars=tab:\|\ ,space:␣
 
 " Tab control
 set noexpandtab " TABS!!!
-set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
@@ -105,19 +104,19 @@ set foldlevel=1
 
 " UI/UX
 
+autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
+
 " Use linux clipboard
 set clipboard+=unnamedplus
 
 " Searching
 set ignorecase " case insensitive searching
 set smartcase " case-sensitive if expresson contains a capital letter
-set hlsearch
 set incsearch " set incremental search, like modern browsers
 set nolazyredraw " don't redraw while executing macros
 
 set magic " Set magic on, for regex
 
-set autoindent " automatically set indent of new line
 set smartindent
 
 set mat=2 " how many tenths of a second to blink
