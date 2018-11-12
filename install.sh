@@ -3,16 +3,14 @@
 WORKING_DIR=$(pwd)
 
 cd ~
-mv $WORKING_DIR ./.vim
+mv $WORKING_DIR ./.config/nvim
 
-cd ./.vim
-
-ln -fs ~/.vim/vimrc ../.vimrc
+cd ./.config/nvim
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+ln -s ~/.config/nvim ~/.vim
+ln -s ~/.config/nvim/init.vim ~/.vimrc
 
 nvim +PlugInstall +qall
 
