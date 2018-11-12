@@ -1,0 +1,24 @@
+{
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"]
+    },
+    "elixir-ls": {
+      "command": "/home/nemanjan00/Applications/elixir-ls/release/language_server.sh",
+      "args": [],
+      "filetypes": ["ex"]
+    }
+  },
+  "cquery": {
+    "command": "cquery",
+    "args": ["--log-file=/tmp/cq.log"],
+    "revealOutputChannelOn": "never",
+    "filetypes": ["c", "cpp"],
+    "initializationOptions": {
+      "cacheDirectory": "/tmp/cquery"
+    }
+  }
+}
+
