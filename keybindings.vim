@@ -8,7 +8,7 @@ map <C-y> :%y+<cr>
 map <C-t> :%retab!<cr>
 map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
 
-map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
+map <leader>ev :e! ~/.config/nvim/init.vim<cr> " edit ~/.vimrc
 
 if has("nvim")
 	" Exit terminal mode
