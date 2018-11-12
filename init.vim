@@ -45,10 +45,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	" Autocomplete
-	Plug 'autozimu/LanguageClient-neovim', {
-		\ 'branch': 'next',
-		\ 'do': 'bash install.sh',
-		\ } " Client for langserver
+	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 	Plug 'sunaku/vim-dasht' " dasht integration for VIM (for offline docs)
 	Plug 'dbeniamine/cheat.sh-vim' " cht.sh in VIM
@@ -62,10 +59,7 @@ call plug#begin('~/.vim/bundle')
 		UpdateRemotePlugins
 	endfunction
 
-	Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')} " Autocomplete
 	Plug 'ervandew/supertab' " Tab everywhere
-
-	Plug 'carlitux/deoplete-ternjs' " Support for tern
 
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
@@ -148,11 +142,6 @@ source $VIMHOME/keybindings.vim
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
-
-source $VIMHOME/autocomplete/servercommands.vim
-
-let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings 
-let g:LanguageClient_settingsPath = $VIMHOME.'/nvim/settings.json'
 
 " Docs
 
