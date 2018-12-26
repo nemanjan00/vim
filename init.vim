@@ -18,6 +18,10 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
 
+	Plug 'urbainvaes/vim-remembrall'
+
+	Plug 'majutsushi/tagbar'
+
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
 	Plug 'skywind3000/vim-keysound' " Typewriter sound
@@ -131,8 +135,13 @@ if has('conceal')
 	autocmd FileType json set conceallevel=0
 endif
 
+"autocmd FileType * nested :call tagbar#autoopen(0)
+
 let g:keysound_py_version = 3
 let g:keysound_theme = 'typewriter'
+
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " Mappings
 
