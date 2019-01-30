@@ -14,6 +14,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'tpope/vim-repeat' " Better repeat for key mappings
 
+	Plug 'godlygeek/tabular'
+
 	Plug 'vim-airline/vim-airline' " Status line
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
@@ -35,6 +37,7 @@ call plug#begin('~/.vim/bundle')
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
 
+	Plug 'PotatoesMaster/i3-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 
@@ -43,6 +46,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
+	Plug 'plasticboy/vim-markdown'
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue'] } " Fast HTML
 
@@ -131,7 +135,7 @@ let g:airline_powerline_fonts = 1
 set laststatus=2 " show the satus line all the time
 
 if has('conceal')
-	set conceallevel=2 concealcursor=niv
+	set conceallevel=0 concealcursor=niv
 	autocmd FileType json set conceallevel=0
 endif
 
