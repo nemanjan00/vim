@@ -9,10 +9,9 @@
                 "sh"
             ]
         },
-        "elixir-ls": {
+        "elixir": {
             "command": "/home/nemanjan00/Applications/elixir-ls/release/language_server.sh",
             "args": [
-
             ],
             "filetypes": [
                 "ex"

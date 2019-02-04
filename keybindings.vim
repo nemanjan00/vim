@@ -10,6 +10,8 @@ map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
 
 map <leader>ev :e! ~/.config/nvim/init.vim<cr> " edit ~/.vimrc
 
+map <leader>ft :TableFormat<cr> " Reformat markdown table
+
 if has("nvim")
 	" Exit terminal mode
 	tnoremap <Esc> <C-\><C-n>
@@ -23,7 +25,8 @@ call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
 call arpeggio#map('i', '', 0, 'fn', 'function')
 call arpeggio#map('i', '', 0, 'rq', 'require')
-call arpeggio#map('i', '', 0, 'md', 'module.exports = function(){}')
+call arpeggio#map('i', '', 0, 'md', 'module.exports = () => {}<Esc>i')
+call arpeggio#map('i', '', 0, 'ct', 'const')
 
 source $VIMHOME/functions/winmove.vim
 
@@ -33,18 +36,15 @@ map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
 " Neosnippet
-imap <C-k>		 <Plug>(neosnippet_expand_or_jump)
-smap <C-k>		 <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>		 <Plug>(neosnippet_expand_target)
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \		 "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" Use <C-l> to trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> to select text for visual text of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> to jump to forward placeholder, which is default
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> to jump to backward placeholder, which is default
+let g:coc_snippet_prev = '<c-k>'
 
 " FZF
 

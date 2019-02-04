@@ -53,6 +53,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	" Autocomplete
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 	Plug 'sunaku/vim-dasht' " dasht integration for VIM (for offline docs)
