@@ -1,6 +1,10 @@
 " Checks if I am using battery
 
 function! MyOnBattery()
-	return readfile('/sys/class/power_supply/AC/online') == ['0']
+	if filereadable("/sys/class/power_supply/AC/online")
+		return readfile('/sys/class/power_supply/AC/online') == ['0']
+	endif
+
+	return false
 endfunction
 
