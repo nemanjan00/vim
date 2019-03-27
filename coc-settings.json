@@ -1,52 +1,53 @@
 {
-    "languageserver": {
-        "bash": {
-            "command": "bash-language-server",
-            "args": [
-                "start"
-            ],
-            "filetypes": [
-                "sh"
-            ]
-        },
-        "haskell": {
-            "command": "/home/nemanjan00/.local/bin/hie-wrapper",
-            "args": [
-            ],
-            "filetypes": [
-                "hs"
-            ]
-        },
-        "elixir": {
-            "command": "/home/nemanjan00/Applications/elixir-ls/release/language_server.sh",
-            "args": [
-            ],
-            "filetypes": [
-                "ex"
-            ]
-        },
-        "cquery": {
-            "command": "cquery",
-            "args": [
-                "--log-file=/tmp/cq.log"
-            ],
-            "revealOutputChannelOn": "never",
-            "filetypes": [
-                "c",
-                "cpp"
-            ],
-            "initializationOptions": {
-                "cacheDirectory": "/tmp/cquery"
-            }
-        },
-        "phplang": {
-            "command": "php",
-            "args": [
-                "/home/nemanjan00/.composer/vendor/felixfbecker/language-server/bin/php-language-server.php"
-            ],
-            "filetypes": [
-                "php"
-            ]
-        }
+  "suggest.triggerAfterInsertEnter": true,
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ]
+    },
+    "haskell": {
+      "command": "/home/nemanjan00/.local/bin/hie-wrapper",
+      "args": [
+      ],
+      "filetypes": [
+        "hs"
+      ]
+    },
+    "elixir": {
+      "command": "/home/nemanjan00/Applications/elixir-ls/release/language_server.sh",
+      "args": [
+      ],
+      "filetypes": [
+        "ex"
+      ]
+    },
+    "cquery": {
+      "command": "cquery",
+      "args": [
+        "--log-file=/tmp/cq.log"
+      ],
+      "revealOutputChannelOn": "never",
+      "filetypes": [
+        "c",
+        "cpp"
+      ],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/cquery"
+      }
+    },
+    "phplang": {
+      "command": "php",
+      "args": [
+        "/home/nemanjan00/.composer/vendor/felixfbecker/language-server/bin/php-language-server.php"
+      ],
+      "filetypes": [
+        "php"
+      ]
     }
+  }
 }
