@@ -9,6 +9,14 @@
                 "sh"
             ]
         },
+        "haskell": {
+            "command": "/home/nemanjan00/.local/bin/hie-wrapper",
+            "args": [
+            ],
+            "filetypes": [
+                "hs"
+            ]
+        },
         "elixir": {
             "command": "/home/nemanjan00/Applications/elixir-ls/release/language_server.sh",
             "args": [

@@ -37,6 +37,11 @@ call plug#begin('~/.vim/bundle')
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
 
+	Plug 'leafgarland/typescript-vim'
+	Plug 'posva/vim-vue'
+	Plug 'mustache/vim-mustache-handlebars'
+	Plug 'amadeus/vim-mjml'
+
 	Plug 'PotatoesMaster/i3-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
@@ -48,7 +53,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
 	Plug 'plasticboy/vim-markdown'
 
-	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue'] } " Fast HTML
+	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
 
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
