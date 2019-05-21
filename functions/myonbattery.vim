@@ -5,6 +5,6 @@ function! MyOnBattery()
 		return readfile('/sys/class/power_supply/AC/online') == ['0']
 	endif
 
-	return false
+	return False
 endfunction
 
