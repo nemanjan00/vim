@@ -24,6 +24,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'majutsushi/tagbar'
 
+	Plug 'junegunn/goyo.vim'
+
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
 	Plug 'skywind3000/vim-keysound' " Typewriter sound

@@ -107,6 +107,8 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
+nmap <leader>tb :Tagbar<CR>
+call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
