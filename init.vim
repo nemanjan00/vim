@@ -140,6 +140,7 @@ set smartindent
 set mat=2 " how many tenths of a second to blink
 
 set background=dark
+colorscheme dracula
 let g:airline_theme='dracula'
 
 hi Normal guibg=NONE ctermbg=NONE
