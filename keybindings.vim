@@ -152,3 +152,6 @@ map <M-a> :Ag<cr>
 map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 
+" Action menu
+nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
+

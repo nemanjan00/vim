@@ -9,6 +9,8 @@ source $VIMHOME/essentials/index.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 	" UI
+	Plug 'kizza/actionmenu.nvim'
+	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 	Plug 'mhinz/vim-signify' " Git changes in gutter
 	Plug 'tpope/vim-fugitive' " Git helper
 
@@ -25,6 +27,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'majutsushi/tagbar'
 
 	Plug 'junegunn/goyo.vim'
+	Plug 'wikitopian/hardmode'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -54,6 +57,7 @@ call plug#begin('~/.vim/bundle')
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
 	Plug 'plasticboy/vim-markdown'
+	Plug 'shime/vim-livedown'
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
 
@@ -97,6 +101,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
 " Display spaces and tabs
 set list
 set listchars=tab:\|\ ,space:␣
@@ -134,7 +140,6 @@ set smartindent
 set mat=2 " how many tenths of a second to blink
 
 set background=dark
-colorscheme dracula
 let g:airline_theme='dracula'
 
 hi Normal guibg=NONE ctermbg=NONE
