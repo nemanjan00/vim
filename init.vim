@@ -9,6 +9,7 @@ source $VIMHOME/essentials/index.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 	" UI
+	Plug 'ncm2/float-preview.nvim'
 	Plug 'kizza/actionmenu.nvim'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 	Plug 'mhinz/vim-signify' " Git changes in gutter
@@ -102,6 +103,8 @@ call plug#begin('~/.vim/bundle')
 call plug#end()
 
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+let g:float_preview#docked = 1
 
 " Display spaces and tabs
 set list
