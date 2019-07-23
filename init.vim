@@ -9,7 +9,6 @@ source $VIMHOME/essentials/index.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
 	" UI
-	Plug 'ncm2/float-preview.nvim'
 	Plug 'kizza/actionmenu.nvim'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 	Plug 'mhinz/vim-signify' " Git changes in gutter
@@ -28,7 +27,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'majutsushi/tagbar'
 
 	Plug 'junegunn/goyo.vim'
-	Plug 'wikitopian/hardmode'
+	Plug 'takac/vim-hardtime'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -102,7 +101,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+let g:hardtime_default_on = 1
 
 let g:float_preview#docked = 1
 
@@ -124,7 +123,6 @@ set nofoldenable " don't fold by default
 set foldlevel=1
 
 " UI/UX
-
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
 
 " Use linux clipboard
@@ -167,22 +165,18 @@ let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_er
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " Mappings
-
 source $VIMHOME/keybindings.vim
 
 " Autocomplete
-
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
 
 " Docs
-
 let g:dasht_filetype_docsets = {}
 
 let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 
 " Make/lint
-
 source $VIMHOME/functions/myonbattery.vim
 
 if MyOnBattery()
@@ -192,6 +186,5 @@ else
 endif
 
 " Gist
-
 let g:gist_open_browser_after_post = 1
 

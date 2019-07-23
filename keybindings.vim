@@ -156,3 +156,5 @@ map <C-M-g> :Gist<cr>
 source $VIMHOME/functions/actions.vim
 nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
 
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
