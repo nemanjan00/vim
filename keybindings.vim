@@ -158,3 +158,7 @@ nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
 
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
+nnoremap <leader>td <Esc>:TODOToggle<CR>
+
+nnoremap <leader>nt <Esc>:NERDTree<CR>
+

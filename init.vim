@@ -16,6 +16,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'tpope/vim-repeat' " Better repeat for key mappings
 
+	Plug 'Dimercel/todo-vim'
+
 	Plug 'godlygeek/tabular'
 
 	Plug 'vim-airline/vim-airline' " Status line
@@ -38,6 +40,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'junegunn/fzf.vim' " Fuzzy find
 
 	Plug 'brooth/far.vim' " Find and replace
+
+	Plug 'scrooloose/nerdtree'
+	Plug 'Xuyuanp/nerdtree-git-plugin'
 
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
@@ -141,6 +146,8 @@ set smartindent
 set mat=2 " how many tenths of a second to blink
 
 set background=dark
+set termguicolors
+
 colorscheme dracula
 let g:airline_theme='dracula'
 
