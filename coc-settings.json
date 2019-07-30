@@ -40,6 +40,10 @@
         "cacheDirectory": "/tmp/cquery"
       }
     },
+    "kotlinls": {
+      "command": "/usr/share/kotlin/kotlin-language-server/bin/server",
+      "filetypes": ["kotlin"]
+    },
     "phplang": {
       "command": "php",
       "args": [

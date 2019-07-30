@@ -56,6 +56,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 
+	Plug 'udalov/kotlin-vim'
+
 	" Comment
 	Plug 'scrooloose/nerdcommenter' " Better comments
 
