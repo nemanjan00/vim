@@ -58,6 +58,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'udalov/kotlin-vim'
 
+	Plug 'heavenshell/vim-jsdoc'
+
 	" Comment
 	Plug 'scrooloose/nerdcommenter' " Better comments
 

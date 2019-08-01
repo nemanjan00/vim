@@ -162,3 +162,6 @@ nnoremap <leader>td <Esc>:TODOToggle<CR>
 
 nnoremap <leader>nt <Esc>:NERDTree<CR>
 
+nnoremap <leader>pi <Esc>:PlugInstall<CR>
+nnoremap <leader>pu <Esc>:PlugUpdate<CR>
+
