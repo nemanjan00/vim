@@ -32,7 +32,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'takac/vim-hardtime'
 
 	" Colorschemes
+	Plug 'drewtempelmeyer/palenight.vim'
 	Plug 'dracula/vim' " Dracula
+	Plug 'kjssad/quantum.vim'
 	Plug 'skywind3000/vim-keysound' " Typewriter sound
 
 	" File managment and search
@@ -125,6 +127,10 @@ set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
+"if exists('&colorcolumn')
+    "set colorcolumn=80
+"endif
+
 " code folding settings
 set foldmethod=syntax " fold based on indent
 set foldnestmax=10 " deepest fold is 10 levels
@@ -152,8 +158,17 @@ set mat=2 " how many tenths of a second to blink
 set background=dark
 set termguicolors
 
-colorscheme dracula
+colorscheme quantum
+"colorscheme palenight
+"colorscheme dracula
+"let g:airline_theme='quantum'
 let g:airline_theme='dracula'
+"let g:airline_theme='palenight'
+
+" airline
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 hi Normal guibg=NONE ctermbg=NONE
 set noshowmode

@@ -166,4 +166,5 @@ nnoremap <leader>pi <Esc>:PlugInstall<CR>
 nnoremap <leader>pu <Esc>:PlugUpdate<CR>
 
 nnoremap <leader>jsd <Esc>:JsDoc<CR>
+nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
