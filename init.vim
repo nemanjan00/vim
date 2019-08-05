@@ -20,6 +20,7 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'godlygeek/tabular'
 
+	Plug 'junegunn/vim-peekaboo'
 	Plug 'vim-airline/vim-airline' " Status line
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
