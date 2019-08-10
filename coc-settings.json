@@ -43,15 +43,6 @@
     "kotlinls": {
       "command": "/usr/share/kotlin/kotlin-language-server/bin/server",
       "filetypes": ["kotlin"]
-    },
-    "phplang": {
-      "command": "php",
-      "args": [
-        "/home/nemanjan00/.composer/vendor/felixfbecker/language-server/bin/php-language-server.php"
-      ],
-      "filetypes": [
-        "php"
-      ]
     }
   }
 }
