@@ -108,7 +108,7 @@ set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
 "if exists('&colorcolumn')
-    "set colorcolumn=80
+	"set colorcolumn=80
 "endif
 
 " code folding settings
