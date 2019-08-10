@@ -40,10 +40,9 @@ map <C-l> :call WinMove('l')<cr>
 
 
 " Coc and neosnippet
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Use <C-l> to trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -142,17 +141,14 @@ nnoremap <silent> <space>k	:<C-u>CocPrev<CR>
 nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 
 " FZF
-
 map <C-p> :FZF<cr>
 map <M-a> :Ag<cr>
 
 " Gist
-
 map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 
 " Action menu
-
 source $VIMHOME/functions/actions.vim
 
 nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
