@@ -10,7 +10,13 @@ cd ./.config/nvim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ln -s ~/.config/nvim ~/.vim
+ln -s ~/.config/coc ~/.vim/coc
 ln -s ~/.config/nvim/init.vim ~/.vimrc
 
 nvim +PlugInstall +qall
+
+cd ~/.config/coc/extensions
+yarn
+
+cd ~/.vim
 
