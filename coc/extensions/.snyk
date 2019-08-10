@@ -1,0 +1,9 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:braces:20180219':
+    - coc-vetur > vue-language-server > stylus-supremacy > stylint > chokidar > anymatch > micromatch > braces:
+        reason: 'DOS should not be problem in editor. '
+        expires: '2019-09-09T13:10:59.080Z'
+patch: {}
