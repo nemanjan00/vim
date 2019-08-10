@@ -5,6 +5,10 @@ else
 	let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 endif
 
+function! DoRemote(arg)
+	UpdateRemotePlugins
+endfunction
+
 set t_Co=256 " 256 Colors in terminal
 set autoread " detect when a file is changed
 filetype plugin on " Filetype detection

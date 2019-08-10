@@ -3,12 +3,12 @@ let maplocalleader = '.'
 let mapleader = ','
 
 " Key maps
-map <C-y> :%y+<cr>
+map <C-y> :%y+<cr> " Copy whole file
 
 map <C-t> :%retab!<cr>
 map <C-M-t> :set tabstop=2<cr> :%retab!<cr> :set tabstop=4<cr>
 
-map <leader>ev :e! ~/.config/nvim/init.vim<cr> " edit ~/.vimrc
+map <leader>ev :e! ~/.config/nvim/init.vim<cr> " edit ~/.vimrc " Edit vim config
 
 map <leader>ft :TableFormat<cr> " Reformat markdown table
 
@@ -21,13 +21,16 @@ endif
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
+" chord mappings
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
 call arpeggio#map('i', '', 0, 'fn', 'function')
 call arpeggio#map('i', '', 0, 'rq', 'require')
 call arpeggio#map('i', '', 0, 'md', 'module.exports = () => {}<Esc>i')
 call arpeggio#map('i', '', 0, 'ct', 'const')
+call arpeggio#map('i', '', 0, 'lt', 'let')
 
+" window splitting and moving
 source $VIMHOME/functions/winmove.vim
 
 map <C-h> :call WinMove('h')<cr>
@@ -36,15 +39,6 @@ map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
 " Neosnippet
-
-" Use <C-l> to trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-" Use <C-j> to select text for visual text of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-" Use <C-j> to jump to forward placeholder, which is default
-let g:coc_snippet_next = '<c-j>'
-" Use <C-k> to jump to backward placeholder, which is default
-let g:coc_snippet_prev = '<c-k>'
 
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -68,9 +62,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
+	execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+	call CocAction('doHover')
   endif
 endfunction
 
@@ -81,8 +75,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+vmap <leader>f	<Plug>(coc-format-selected)
+nmap <leader>f	<Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -93,8 +87,8 @@ augroup mygroup
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+vmap <leader>a	<Plug>(coc-codeaction-selected)
+nmap <leader>a	<Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -105,42 +99,40 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call	 CocAction('fold', <f-args>)
 
 nmap <leader>tb :Tagbar<CR>
 call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-
+	\ 'colorscheme': 'wombat',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\				[ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+	\ }
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a	:<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e	:<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>c	:<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o	:<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s	:<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>j	:<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>k	:<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 
 " FZF
 
@@ -153,18 +145,15 @@ map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 
 " Action menu
+
 source $VIMHOME/functions/actions.vim
+
 nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
-
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
+nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
 nnoremap <leader>td <Esc>:TODOToggle<CR>
-
 nnoremap <leader>nt <Esc>:NERDTree<CR>
-
 nnoremap <leader>pi <Esc>:PlugInstall<CR>
 nnoremap <leader>pu <Esc>:PlugUpdate<CR>
-
 nnoremap <leader>jsd <Esc>:JsDoc<CR>
 nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 

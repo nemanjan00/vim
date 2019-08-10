@@ -8,34 +8,28 @@ source $VIMHOME/essentials/index.vim
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
+	" Dependencies
+	Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Async program runner for Vim
+
 	" UI
 	Plug 'kizza/actionmenu.nvim'
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 	Plug 'mhinz/vim-signify' " Git changes in gutter
 	Plug 'tpope/vim-fugitive' " Git helper
-
 	Plug 'tpope/vim-repeat' " Better repeat for key mappings
-
 	Plug 'Dimercel/todo-vim'
-
-	Plug 'godlygeek/tabular'
-
-	Plug 'junegunn/vim-peekaboo'
+	"Plug 'godlygeek/tabular'
+	Plug 'junegunn/vim-peekaboo' " Show content of registers
 	Plug 'vim-airline/vim-airline' " Status line
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
-
-	Plug 'urbainvaes/vim-remembrall'
-
-	Plug 'majutsushi/tagbar'
-
-	Plug 'junegunn/goyo.vim'
-	Plug 'takac/vim-hardtime'
+	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
+	Plug 'majutsushi/tagbar' " Show map of te file
+	Plug 'takac/vim-hardtime' " Helper for learning vim coding by disabling hjkl
 
 	" Colorschemes
-	Plug 'drewtempelmeyer/palenight.vim'
 	Plug 'dracula/vim' " Dracula
-	Plug 'kjssad/quantum.vim'
+	Plug 'kjssad/quantum.vim' " Quantum theme
 	Plug 'skywind3000/vim-keysound' " Typewriter sound
 
 	" File managment and search
@@ -54,47 +48,33 @@ call plug#begin('~/.vim/bundle')
 	Plug 'posva/vim-vue'
 	Plug 'mustache/vim-mustache-handlebars'
 	Plug 'amadeus/vim-mjml'
-
 	Plug 'PotatoesMaster/i3-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
-
 	Plug 'udalov/kotlin-vim'
-
 	Plug 'heavenshell/vim-jsdoc'
-
-	" Comment
-	Plug 'scrooloose/nerdcommenter' " Better comments
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
 	Plug 'plasticboy/vim-markdown'
-	Plug 'shime/vim-livedown'
+
+	Plug 'scrooloose/nerdcommenter' " Better comments
 
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
-
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
-
-	" Autocomplete
-	Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
 
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 	Plug 'sunaku/vim-dasht' " dasht integration for VIM (for offline docs)
 	Plug 'dbeniamine/cheat.sh-vim' " cht.sh in VIM
 
-	Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Async program runner for Vim
 	Plug 'idanarye/vim-vebugger' " Debugger
-
 	Plug 'vim-vdebug/vdebug' " Debugger
 
-	function! DoRemote(arg)
-		UpdateRemotePlugins
-	endfunction
-
+	" Autocomplete
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
 	Plug 'ervandew/supertab' " Tab everywhere
-
 	Plug 'Shougo/neosnippet'
 	Plug 'Shougo/neosnippet-snippets'
 	Plug 'nemanjan00/snippets'
@@ -113,9 +93,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jkramer/vim-checkbox' " For toggling md checkboxes
 call plug#end()
 
+" Make Vim disable hjkl, arrows, etc
 let g:hardtime_default_on = 1
-
-let g:float_preview#docked = 1
 
 " Display spaces and tabs
 set list
@@ -140,6 +119,7 @@ set foldlevel=1
 
 " UI/UX
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
+autocmd BufNewFile *.c silent! 0r $VIMHOME/templates/c.tpl
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -156,15 +136,13 @@ set smartindent
 
 set mat=2 " how many tenths of a second to blink
 
+" Theming
+
 set background=dark
 set termguicolors
 
 colorscheme quantum
-"colorscheme palenight
-"colorscheme dracula
-"let g:airline_theme='quantum'
 let g:airline_theme='dracula'
-"let g:airline_theme='palenight'
 
 " airline
 let g:airline_powerline_fonts = 0
@@ -177,6 +155,8 @@ set noshowmode
 let g:airline_powerline_fonts = 1
 
 set laststatus=2 " show the satus line all the time
+
+" Conceal
 
 if has('conceal')
 	set conceallevel=0 concealcursor=niv
@@ -193,10 +173,6 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 
 " Mappings
 source $VIMHOME/keybindings.vim
-
-" Autocomplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
 
 " Docs
 let g:dasht_filetype_docsets = {}
