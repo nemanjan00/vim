@@ -38,7 +38,6 @@ map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
-
 " Coc and neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -109,18 +108,6 @@ command! -nargs=? Fold :call	 CocAction('fold', <f-args>)
 
 nmap <leader>tb :Tagbar<CR>
 call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
-
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-	\ 'colorscheme': 'wombat',
-	\ 'active': {
-	\		'left': [ [ 'mode', 'paste' ],
-	\				[ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-	\		'cocstatus': 'coc#status'
-	\ },
-	\ }
 
 " Using CocList
 " Show all diagnostics
