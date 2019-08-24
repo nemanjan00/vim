@@ -7,11 +7,9 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 sessions/default.vim
 argglobal
 silent! argdel *
-$argadd sessions/default.vim
-edit sessions/default.vim
+$argadd nvim
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -21,7 +19,9 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-setlocal fdm=syntax
+enew
+file NERD_tree_1
+setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
 setlocal fdi=#
@@ -29,12 +29,6 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=10
 setlocal nofen
-let s:l = 48 - ((47 * winheight(0) + 24) / 48)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-48
-normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

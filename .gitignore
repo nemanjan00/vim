@@ -12,3 +12,5 @@
 !/coc/extensions/package.json
 !/coc/extensions/yarn.lock
 !/coc/extensions/.snyk
+
+/sessions
