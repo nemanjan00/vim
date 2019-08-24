@@ -21,14 +21,17 @@ endif
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
-" chord mappings
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
-call arpeggio#map('i', '', 0, 'fn', 'function')
-call arpeggio#map('i', '', 0, 'rq', 'require')
-call arpeggio#map('i', '', 0, 'md', 'module.exports = () => {}<Esc>i')
-call arpeggio#map('i', '', 0, 'ct', 'const')
-call arpeggio#map('i', '', 0, 'lt', 'let')
+if &rtp =~ 'arpeggio'
+	" chord mappings
+	call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+	call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
+	call arpeggio#map('i', '', 0, 'fn', 'function')
+	call arpeggio#map('i', '', 0, 'rq', 'require')
+	call arpeggio#map('i', '', 0, 'md', 'module.exports = () => {}<Esc>i')
+	call arpeggio#map('i', '', 0, 'ct', 'const')
+	call arpeggio#map('i', '', 0, 'lt', 'let')
+	call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
+endif
 
 " window splitting and moving
 source $VIMHOME/functions/winmove.vim
@@ -107,7 +110,6 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call	 CocAction('fold', <f-args>)
 
 nmap <leader>tb :Tagbar<CR>
-call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
 
 " Using CocList
 " Show all diagnostics

@@ -141,7 +141,15 @@ set mat=2 " how many tenths of a second to blink
 set background=dark
 set termguicolors
 
-colorscheme quantum
+function! HasColorscheme(name) abort
+    let pat = 'colors/'.a:name.'.vim'
+    return !empty(globpath(&rtp, pat))
+endfunction
+
+if HasColorscheme('quantum')
+	colorscheme quantum
+endif
+
 let g:airline_theme='dracula'
 
 " airline
@@ -182,10 +190,12 @@ let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 " Make/lint
 source $VIMHOME/functions/myonbattery.vim
 
-if MyOnBattery()
-	call neomake#configure#automake('rw')
-else
-	call neomake#configure#automake('rnw', 1000)
+if &rtp =~ 'neomake'
+	if MyOnBattery()
+		call neomake#configure#automake('rw')
+	else
+		call neomake#configure#automake('rnw', 1000)
+	endif
 endif
 
 " Gist
