@@ -190,13 +190,13 @@ let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 " Make/lint
 source $VIMHOME/functions/myonbattery.vim
 
-if &rtp =~ 'neomake'
+try
 	if MyOnBattery()
 		call neomake#configure#automake('rw')
 	else
 		call neomake#configure#automake('rnw', 1000)
 	endif
-endif
+endtry
 
 " Gist
 let g:gist_open_browser_after_post = 1

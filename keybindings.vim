@@ -21,7 +21,7 @@ endif
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 
-if &rtp =~ 'arpeggio'
+try
 	" chord mappings
 	call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 	call arpeggio#map('i', '', 0, 'wq', '<Esc>:wq<cr>')
@@ -31,7 +31,7 @@ if &rtp =~ 'arpeggio'
 	call arpeggio#map('i', '', 0, 'ct', 'const')
 	call arpeggio#map('i', '', 0, 'lt', 'let')
 	call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
-endif
+endtry
 
 " window splitting and moving
 source $VIMHOME/functions/winmove.vim
