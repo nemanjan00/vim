@@ -13,8 +13,6 @@ ln -s ~/.config/nvim ~/.vim
 ln -s ~/.config/nvim/coc ~/.config/coc
 ln -s ~/.config/nvim/init.vim ~/.vimrc
 
-nvim +PlugInstall +qall
-
 cd ~/.config/coc/extensions
 yarn
 
