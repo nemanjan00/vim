@@ -87,6 +87,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'kana/vim-arpeggio' " Chord typing
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Auto gist
 	Plug 'jamessan/vim-gnupg' " Transparent gpg file editing
+	Plug 'rhysd/vim-grammarous'
 
 	" Must be loaded at the end
 	Plug 'ryanoasis/vim-devicons' " Icons for file formats
@@ -98,7 +99,7 @@ let g:hardtime_default_on = 1
 
 " Display spaces and tabs
 set list
-set listchars=tab:\|\ ,space:␣
+set listchars=tab:\|\ ,space:␣,eol:↲
 
 " Tab control
 set noexpandtab " TABS!!!
@@ -200,4 +201,6 @@ endtry
 
 " Gist
 let g:gist_open_browser_after_post = 1
+
+highlight NonText ctermfg=8 guifg=gray
 
