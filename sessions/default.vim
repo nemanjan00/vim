@@ -7,11 +7,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 install.sh
+badd +0 sessions/default.vim
 argglobal
 silent! argdel *
-$argadd install.sh
-edit install.sh
+$argadd sessions/default.vim
+edit sessions/default.vim
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -29,11 +29,11 @@ setlocal fdl=1
 setlocal fml=1
 setlocal fdn=10
 setlocal nofen
-let s:l = 16 - ((15 * winheight(0) + 24) / 48)
+let s:l = 48 - ((47 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-16
+48
 normal! 0
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
