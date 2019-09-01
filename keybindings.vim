@@ -130,7 +130,8 @@ nnoremap <silent> <space>k	:<C-u>CocPrev<CR>
 nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 
 " FZF
-map <C-p> :FZF<cr>
+source $VIMHOME/functions/fzf.vim
+map <C-p> :call FZFWithDevIcons()<cr>
 map <M-a> :Ag<cr>
 
 " Gist
@@ -149,4 +150,15 @@ nnoremap <leader>pu <Esc>:PlugUpdate<CR>
 nnoremap <leader>jsd <Esc>:JsDoc<CR>
 nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 nnoremap <leader>mp <Esc>:CocList marketplace<space>
+
+" CamelCase navigation
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 

@@ -16,16 +16,25 @@ call plug#begin('~/.vim/bundle')
 	Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 	Plug 'mhinz/vim-signify' " Git changes in gutter
 	Plug 'tpope/vim-fugitive' " Git helper
+	Plug 'rhysd/committia.vim'
 	Plug 'tpope/vim-repeat' " Better repeat for key mappings
 	Plug 'Dimercel/todo-vim'
 	"Plug 'godlygeek/tabular'
 	Plug 'junegunn/vim-peekaboo' " Show content of registers
 	Plug 'vim-airline/vim-airline' " Status line
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
-	Plug 'gorodinskiy/vim-coloresque' " Color display inside Vim
+	Plug 'ap/vim-css-color' " Color display inside Vim
 	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
 	Plug 'majutsushi/tagbar' " Show map of te file
 	Plug 'takac/vim-hardtime' " Helper for learning vim coding by disabling hjkl
+	Plug 'ntpeters/vim-better-whitespace'
+	Plug 'luochen1990/rainbow'
+	Plug 'tpope/vim-speeddating'
+	Plug 'airblade/vim-rooter'
+	Plug 'google/vim-searchindex'
+	Plug 'bkad/camelcasemotion'
+	Plug 'stevearc/vim-arduino'
+	Plug 'chrisbra/sudoedit.vim'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -121,6 +130,8 @@ set foldlevel=1
 " UI/UX
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
 autocmd BufNewFile *.c silent! 0r $VIMHOME/templates/c.tpl
+
+let g:rainbow_active = 1
 
 " Use linux clipboard
 set clipboard+=unnamedplus
