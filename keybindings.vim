@@ -150,6 +150,7 @@ nnoremap <leader>pu <Esc>:PlugUpdate<CR>
 nnoremap <leader>jsd <Esc>:JsDoc<CR>
 nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 nnoremap <leader>mp <Esc>:CocList marketplace<space>
+nnoremap <leader>gtd <Esc>Vapdk<esc>:read !rg "TODO" -I \| cut -d":" -f2 \| awk '{print "* [ ] "$0}'<CR>o<esc>
 
 " CamelCase navigation
 

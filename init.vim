@@ -35,6 +35,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'bkad/camelcasemotion'
 	Plug 'stevearc/vim-arduino'
 	Plug 'chrisbra/sudoedit.vim'
+	"Plug 'roman/golden-ratio'
+	Plug 'gisphm/vim-gitignore'
+	Plug 'dhruvasagar/vim-table-mode'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -105,6 +108,8 @@ call plug#end()
 
 " Make Vim disable hjkl, arrows, etc
 let g:hardtime_default_on = 1
+
+let g:UltiSnipsSnipMateDirectories = ["Ultisnips"]
 
 " Display spaces and tabs
 set list
