@@ -1,6 +1,8 @@
 " Important vars
 let $VIMHOME = $HOME."/.vim"
 
+"let g:ale_completion_enabled = 1
+
 " Should be defaults
 source $VIMHOME/essentials/index.vim
 
@@ -26,18 +28,16 @@ call plug#begin('~/.vim/bundle')
 	Plug 'ap/vim-css-color' " Color display inside Vim
 	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
 	Plug 'majutsushi/tagbar' " Show map of te file
-	Plug 'takac/vim-hardtime' " Helper for learning vim coding by disabling hjkl
+	"Plug 'takac/vim-hardtime' " Helper for learning vim coding by disabling hjkl
 	Plug 'ntpeters/vim-better-whitespace'
-	Plug 'luochen1990/rainbow'
-	Plug 'tpope/vim-speeddating'
-	Plug 'airblade/vim-rooter'
-	Plug 'google/vim-searchindex'
-	Plug 'bkad/camelcasemotion'
-	Plug 'stevearc/vim-arduino'
-	Plug 'chrisbra/sudoedit.vim'
-	"Plug 'roman/golden-ratio'
-	Plug 'gisphm/vim-gitignore'
+	Plug 'luochen1990/rainbow' " Rainbow Parentheses
+	Plug 'tpope/vim-speeddating' " Date increment/decrement
+	Plug 'airblade/vim-rooter' " Project root finder
+	Plug 'google/vim-searchindex' " Search result indexes
+	Plug 'bkad/camelcasemotion' " Make Vim understand camelcase
+	Plug 'stevearc/vim-arduino' " Support for Arduino
 	Plug 'dhruvasagar/vim-table-mode'
+	Plug 'liuchengxu/vista.vim'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -55,7 +55,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
-
+	Plug 'sheerun/vim-polyglot'
 	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue'
 	Plug 'mustache/vim-mustache-handlebars'
@@ -65,6 +65,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 	Plug 'udalov/kotlin-vim'
 	Plug 'heavenshell/vim-jsdoc'
+	Plug 'gisphm/vim-gitignore'
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
@@ -75,7 +76,11 @@ call plug#begin('~/.vim/bundle')
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
-	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}, 'for':['javascript', 'css', 'html', 'php', 'vue']}
+
+	Plug 'hsanson/vim-android'
+	Plug 'dense-analysis/ale'
 
 	Plug 'sunaku/vim-dasht' " dasht integration for VIM (for offline docs)
 	Plug 'dbeniamine/cheat.sh-vim' " cht.sh in VIM
@@ -84,7 +89,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'vim-vdebug/vdebug' " Debugger
 
 	" Autocomplete
-	Plug 'SirVer/ultisnips'
+	"Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
 	Plug 'ervandew/supertab' " Tab everywhere
 	Plug 'Shougo/neosnippet'
@@ -207,6 +212,8 @@ let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 " Make/lint
 source $VIMHOME/functions/myonbattery.vim
 
+g:neomake_java_enabled_makers = []
+
 try
 	if MyOnBattery()
 		call neomake#configure#automake('rw')
@@ -219,4 +226,58 @@ endtry
 let g:gist_open_browser_after_post = 1
 
 highlight NonText ctermfg=8 guifg=gray
+
+
+" Android
+
+call airline#parts#define_function(
+\ 'gradle-running',
+\ 'lightline#gradle#running'
+\)
+
+call airline#parts#define_function(
+\ 'gradle-errors',
+\ 'lightline#gradle#errors'
+\)
+
+call airline#parts#define_function(
+\ 'gradle-warnings',
+\ 'lightline#gradle#warnings'
+\)
+
+call airline#parts#define_function(
+\ 'gradle-project',
+\ 'lightline#gradle#project'
+\)
+
+let g:airline_section_x= airline#section#create_right([
+\ 'filetype',
+\ 'gradle-running',
+\ 'gradle-errors',
+\ 'gradle-warnings'
+\])
+
+let g:gradle_glyph_building = ''
+let g:gradle_glyph_warning = ''
+let g:gradle_glyph_error = ''
+let g:gradle_glyph_android = ''
+let g:gradle_glyph_gradle = ''
+
+let g:gradle_loclist_show=1
+let g:gradle_async=0
+
+let g:ale_linters = {
+\ 'xml': ['android'],
+\ 'groovy': ['android'],
+\ 'java': ['android', 'javalsp'],
+\ 'kotlin': ['android', 'ktlint', 'languageserver']
+\ }
+
+let g:ale_java_javalsp_executable='/home/nemanjan00/java-language-server/dist/lang_server_linux.sh'
+
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option('sources', {
+\ 'java': ['ale'],
+\})
 

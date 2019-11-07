@@ -914,10 +914,10 @@ coc-eslint@>=1.2.2:
   resolved "https://registry.npmjs.org/coc-eslint/-/coc-eslint-1.2.2.tgz#9c9f949483a999c5313d495ed29b22b9f0102936"
   integrity sha512-zTCot/sVgGWwAj1gaIn6KVaNALTjfpUqbO1xgvhy8F83mPmExfFcksryoE8bJ0X3cfHpHvue0KaG/vlJ/3i4kQ==
 
-coc-git@>=1.6.11:
-  version "1.6.11"
-  resolved "https://registry.npmjs.org/coc-git/-/coc-git-1.6.11.tgz#f9b5660a476640430eb4fecf4e91f0ddfd001e89"
-  integrity sha512-EWeVu64aEXC2b8Iw/0Wstd5HHyOUaSmHgXX+UFJnIee/z8A0oVivKm/1NVDLp1jN2MDlbx3YTD9mUoljyQJ2Ew==
+coc-git@>=1.6.13:
+  version "1.6.13"
+  resolved "https://registry.npmjs.org/coc-git/-/coc-git-1.6.13.tgz#8a25166bea42cf0629226fe9e90455fd616fddd3"
+  integrity sha512-Xw7vaV/AyYq0bLh/D5HBXRgn0qTuOsZqPzmUAvjpCzNDBgI1RYS9/q/Mp0vVtL+/LANWgun2OvI1XKIxAMQ0WA==
 
 coc-html@^1.2.1:
   version "1.2.1"
@@ -936,10 +936,10 @@ coc-json@>=1.2.3:
   resolved "https://registry.npmjs.org/coc-json/-/coc-json-1.2.3.tgz#74fd20ce91387086fdc864011e28348b90063c2b"
   integrity sha512-JlM2CqVuDcxHAxVRcCTd2PsEzAU6jCwJ3N8jaszD3m2HSjq5I796Y7zFmoW6TK/7IOqAiYWCq1l+1yqjTSBedQ==
 
-coc-lists@>=1.3.3:
-  version "1.3.3"
-  resolved "https://registry.npmjs.org/coc-lists/-/coc-lists-1.3.3.tgz#9993ae6be33a3ed8a4711088ab5efa2ad7237b07"
-  integrity sha512-FnZWeXpJDHc1VBOYoKC/8TpZW7xBb9Z09ka07AEutUYbs4zOzoy/IVHOCH//1x5NsunV5Eh18WfbnlOfVnuDwQ==
+coc-lists@>=1.3.4:
+  version "1.3.4"
+  resolved "https://registry.npmjs.org/coc-lists/-/coc-lists-1.3.4.tgz#cbabadea656fc33107c08ae98eaedd56d7389cd6"
+  integrity sha512-midtrVBWwDQ3pOUobsIwhyFt33ziXM+jzGtdT/5xSWw9PbIBaCd+zeUjFiVQxLR8UoL2n5A1mzURl8wx3Mm85g==
 
 coc-marketplace@>=1.5.0:
   version "1.5.0"
@@ -968,6 +968,14 @@ coc-phpls@>=2.0.7:
     vscode-languageclient "^5.2.1"
     vscode-languageserver-protocol "^3.14.1"
 
+coc-post@>=0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/coc-post/-/coc-post-0.0.6.tgz#1c5010ab7b0afafae1a15ca3eedfa22971b4d871"
+  integrity sha512-DnMWXe+6yFDdZr0rc2zw/6Bq/8kqRy7TVnPRZb4MFffGlNFhtj8mxWGXkEUX5sNLlzcLK1Gt75vih1dwXdNccQ==
+  dependencies:
+    node-fetch "^2.6.0"
+    vscode-languageserver-protocol "^3.14.1"
+
 coc-pyls@^1.0.6:
   version "1.0.6"
   resolved "https://registry.npmjs.org/coc-pyls/-/coc-pyls-1.0.6.tgz#7ca5ff6a20dcbc27e7123039644849294cb8f2ac"
@@ -985,10 +993,10 @@ coc-sh@>=0.2.1:
     tslib "^1.9.3"
     which "^1.3.1"
 
-coc-snippets@>=2.1.11:
-  version "2.1.11"
-  resolved "https://registry.npmjs.org/coc-snippets/-/coc-snippets-2.1.11.tgz#97813f52478bb05e520cf31690b65737202fdcd9"
-  integrity sha512-TIbB4miHDzQ+b/mg+3VG20wBTf9WjjuhAZ9NSchD65nfdbz+2Y/PfDEcOCWyglfZN91ogVhcncDbuFp12I8bKA==
+coc-snippets@>=2.1.13:
+  version "2.1.13"
+  resolved "https://registry.npmjs.org/coc-snippets/-/coc-snippets-2.1.13.tgz#c6a515dd018ab13ee1df5d9ddaab4841bdded97d"
+  integrity sha512-RBC5CXRd8xQ/97KJO6cvIZaVhMxWaaMPDBeV5DLA0G8PvBRrRgXoYaAikklkJL+lvUowMnyUSFptoc7Z5hJYYw==
 
 coc-sql@>=0.2.4:
   version "0.2.4"
@@ -1002,10 +1010,10 @@ coc-stylelint@>=1.1.0:
   dependencies:
     stylelint-vscode "^7.0.0-6"
 
-coc-tsserver@>=1.4.1:
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/coc-tsserver/-/coc-tsserver-1.4.1.tgz#f3b2933cd5498b51f43ce19e9ed704296cf1148d"
-  integrity sha512-WqDl49VTQC0d4y2dAXHNkgYqklWi2z8AWdbSgo/LBBodI1sn0uL2s1GsnGOSDcax0agEl2iNnt0z/hGr7KOIKw==
+coc-tsserver@>=1.4.4:
+  version "1.4.4"
+  resolved "https://registry.npmjs.org/coc-tsserver/-/coc-tsserver-1.4.4.tgz#3427892329d11acba93c3e33398195853b276cab"
+  integrity sha512-KFfPFDmRNnrnasbUX5SZAl4ZuwbvbBNmrPXX/PLDsIuQhlLvcscZUyEPUMG89GI8ADelkS2cFDW7421BuQ1J1Q==
   dependencies:
     typescript "3.6.2"
 
@@ -1017,10 +1025,10 @@ coc-vimlsp@>=0.3.9:
     tslib "^1.9.3"
     vim-language-server "^1.2.9"
 
-coc-xml@>=1.9.1:
-  version "1.9.1"
-  resolved "https://registry.npmjs.org/coc-xml/-/coc-xml-1.9.1.tgz#c42a63fe1c56df637dcc228e5ec5a3e2bab2f6a3"
-  integrity sha512-3WUGjQVU1erQllvAq6XImy9/qb8y8OihXgC+mDs7DKWcQRRVNkvL9mwbfPDcy00mIdyM48zkRnDrDwNNPeUQ4g==
+coc-xml@>=1.9.2:
+  version "1.9.3"
+  resolved "https://registry.npmjs.org/coc-xml/-/coc-xml-1.9.3.tgz#262c116dbbbe786f2cad810d93e419fa1048f2e1"
+  integrity sha512-W8I9LeqbzewPzkmsqIIkMVZ9z9Nvkxbfd9qDaRTJC4DpV7r+P9rOzjA9Vgtxnk+FQCbFU534BEJjVD85FARXvg==
 
 coc-yaml@>=1.0.2:
   version "1.0.2"
@@ -3249,6 +3257,11 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.npmjs.org/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+node-fetch@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
+  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
 
 nopt@~4.0.1:
   version "4.0.1"

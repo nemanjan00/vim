@@ -35,5 +35,9 @@
       "command": "/usr/share/kotlin/kotlin-language-server/bin/server",
       "filetypes": ["kotlin"]
     }
-  }
+  },
+  "coc.source.omni.filetypes": [
+    "java"
+  ],
+  "java.errors.incompleteClasspath.severity": "ignore"
 }

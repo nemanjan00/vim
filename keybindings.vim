@@ -131,7 +131,8 @@ nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 
 " FZF
 source $VIMHOME/functions/fzf.vim
-map <C-p> :call FZFWithDevIcons()<cr>
+"map <C-p> :call FZFWithDevIcons()<cr>
+map <C-p> :FZF<cr>
 map <M-a> :Ag<cr>
 
 " Gist
