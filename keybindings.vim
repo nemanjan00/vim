@@ -164,3 +164,5 @@ sunmap b
 sunmap e
 sunmap ge
 
+nmap <leader>ch <Esc>:Cheat<Space>
+

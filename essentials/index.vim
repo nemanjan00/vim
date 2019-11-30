@@ -1,4 +1,4 @@
-" Figure out the system Python for Neovim.
+" Figume out the system Python for Neovim.
 if exists("$VIRTUAL_ENV")
 	let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
 else
@@ -9,6 +9,7 @@ function! DoRemote(arg)
 	UpdateRemotePlugins
 endfunction
 
+"set termguicolors
 set t_Co=256 " 256 Colors in terminal
 set autoread " detect when a file is changed
 filetype plugin on " Filetype detection

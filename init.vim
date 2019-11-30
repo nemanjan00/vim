@@ -41,6 +41,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
+	Plug 'chriskempson/base16-vim'
 	Plug 'kjssad/quantum.vim' " Quantum theme
 	Plug 'skywind3000/vim-keysound' " Typewriter sound
 
@@ -161,16 +162,18 @@ set mat=2 " how many tenths of a second to blink
 " Theming
 
 set background=dark
-set termguicolors
+"set termguicolors
 
 function! HasColorscheme(name) abort
     let pat = 'colors/'.a:name.'.vim'
     return !empty(globpath(&rtp, pat))
 endfunction
 
-if HasColorscheme('quantum')
-	colorscheme quantum
-endif
+"if HasColorscheme('quantum')
+	"colorscheme quantum
+"endif
+
+colorscheme dracula
 
 let g:airline_theme='dracula'
 
