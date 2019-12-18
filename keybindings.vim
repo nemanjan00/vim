@@ -166,3 +166,6 @@ sunmap ge
 
 nmap <leader>ch <Esc>:Cheat<Space>
 
+nnoremap <leader> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+

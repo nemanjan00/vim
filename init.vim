@@ -56,7 +56,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
-	Plug 'sheerun/vim-polyglot'
+	"Plug 'sheerun/vim-polyglot'
 	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue'
 	Plug 'mustache/vim-mustache-handlebars'
@@ -142,7 +142,9 @@ set foldlevel=1
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
 autocmd BufNewFile *.c silent! 0r $VIMHOME/templates/c.tpl
 
-let g:rainbow_active = 1
+let g:rainbow_active=1
+
+let g:vue_disable_pre_processors=1
 
 " Use linux clipboard
 set clipboard+=unnamedplus
