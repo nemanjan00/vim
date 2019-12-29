@@ -41,9 +41,6 @@ call plug#begin('~/.vim/bundle')
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
-	Plug 'chriskempson/base16-vim'
-	Plug 'kjssad/quantum.vim' " Quantum theme
-	Plug 'skywind3000/vim-keysound' " Typewriter sound
 
 	" File managment and search
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -77,8 +74,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
-	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}, 'for':['javascript', 'css', 'html', 'php', 'vue']}
+	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins'}
+	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 	Plug 'hsanson/vim-android'
 	Plug 'dense-analysis/ale'
@@ -200,9 +197,6 @@ endif
 
 "autocmd FileType * nested :call tagbar#autoopen(0)
 
-let g:keysound_py_version = 3
-let g:keysound_theme = 'typewriter'
-
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
@@ -217,7 +211,7 @@ let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
 " Make/lint
 source $VIMHOME/functions/myonbattery.vim
 
-g:neomake_java_enabled_makers = []
+let g:neomake_java_enabled_makers = []
 
 try
 	if MyOnBattery()
@@ -231,58 +225,4 @@ endtry
 let g:gist_open_browser_after_post = 1
 
 highlight NonText ctermfg=8 guifg=gray
-
-
-" Android
-
-call airline#parts#define_function(
-\ 'gradle-running',
-\ 'lightline#gradle#running'
-\)
-
-call airline#parts#define_function(
-\ 'gradle-errors',
-\ 'lightline#gradle#errors'
-\)
-
-call airline#parts#define_function(
-\ 'gradle-warnings',
-\ 'lightline#gradle#warnings'
-\)
-
-call airline#parts#define_function(
-\ 'gradle-project',
-\ 'lightline#gradle#project'
-\)
-
-let g:airline_section_x= airline#section#create_right([
-\ 'filetype',
-\ 'gradle-running',
-\ 'gradle-errors',
-\ 'gradle-warnings'
-\])
-
-let g:gradle_glyph_building = ''
-let g:gradle_glyph_warning = ''
-let g:gradle_glyph_error = ''
-let g:gradle_glyph_android = ''
-let g:gradle_glyph_gradle = ''
-
-let g:gradle_loclist_show=1
-let g:gradle_async=0
-
-let g:ale_linters = {
-\ 'xml': ['android'],
-\ 'groovy': ['android'],
-\ 'java': ['android', 'javalsp'],
-\ 'kotlin': ['android', 'ktlint', 'languageserver']
-\ }
-
-let g:ale_java_javalsp_executable='/home/nemanjan00/java-language-server/dist/lang_server_linux.sh'
-
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#option('sources', {
-\ 'java': ['ale'],
-\})
 
