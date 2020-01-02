@@ -16,11 +16,12 @@
     "coc-post": ">=0.0.6",
     "coc-pyls": "^1.0.6",
     "coc-sh": ">=0.4.0",
-    "coc-snippets": ">=2.1.14",
-    "coc-sql": ">=0.2.4",
+    "coc-snippets": ">=2.1.16",
+    "coc-sql": ">=0.2.5",
     "coc-stylelint": ">=1.1.0",
+    "coc-tabnine": ">=1.2.2",
     "coc-tsserver": ">=1.4.9",
-    "coc-vimlsp": ">=0.4.3",
+    "coc-vimlsp": ">=0.4.4",
     "coc-xml": ">=1.9.5",
     "coc-yaml": ">=1.0.2"
   }

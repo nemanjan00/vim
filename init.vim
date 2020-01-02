@@ -38,6 +38,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'stevearc/vim-arduino' " Support for Arduino
 	Plug 'dhruvasagar/vim-table-mode'
 	Plug 'liuchengxu/vista.vim'
+	Plug 'wakatime/vim-wakatime'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
