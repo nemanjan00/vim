@@ -40,6 +40,10 @@ call plug#begin('~/.vim/bundle')
 	Plug 'liuchengxu/vista.vim'
 	Plug 'wakatime/vim-wakatime'
 
+	Plug 'mhinz/vim-startify'
+	Plug 'AndrewRadev/splitjoin.vim'
+	Plug 'junegunn/gv.vim'
+
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
 

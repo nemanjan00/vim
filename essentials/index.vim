@@ -27,3 +27,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 
 set encoding=utf8
 
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
