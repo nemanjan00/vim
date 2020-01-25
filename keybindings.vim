@@ -30,7 +30,7 @@ try
 	call arpeggio#map('i', '', 0, 'md', 'module.exports = () => {}<Esc>i')
 	call arpeggio#map('i', '', 0, 'ct', 'const')
 	call arpeggio#map('i', '', 0, 'lt', 'let')
-	call arpeggio#map('in', '', 0, 'tb', '<Esc>:Tagbar<CR>')
+	call arpeggio#map('in', '', 0, 'tb', '<Esc>:TagbarToggle<CR>')
 endtry
 
 " window splitting and moving

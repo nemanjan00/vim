@@ -14,3 +14,7 @@
 !/coc/extensions/.snyk
 
 /sessions
+
+# Config secrets
+/secrets.vim
+

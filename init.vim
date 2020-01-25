@@ -36,6 +36,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'wakatime/vim-wakatime'
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'junegunn/gv.vim'
+	Plug 'vimwiki/vimwiki'
+	Plug 'prashantjois/vim-slack'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -60,6 +62,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 	Plug 'heavenshell/vim-jsdoc'
 	Plug 'gisphm/vim-gitignore'
+	Plug 'chr4/nginx.vim'
+	Plug 'pangloss/vim-javascript'
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
@@ -155,8 +159,7 @@ set laststatus=2 " show the satus line all the time
 " Conceal
 
 if has('conceal')
-	set conceallevel=0 concealcursor=niv
-	autocmd FileType json set conceallevel=0
+	set conceallevel=2
 endif
 
 "autocmd FileType * nested :call tagbar#autoopen(0)
@@ -187,6 +190,18 @@ endtry
 
 " Gist
 let g:gist_open_browser_after_post = 1
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
 
 highlight NonText ctermfg=8 guifg=gray
+
+"let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      "\ 'syntax': 'markdown', 'ext': '.md'}]
+
+"let g:vimwiki_folding = 'custom'
+"let g:pandoc#folding#mode = 'stacked'
+"let g:pandoc#modules#enabled = ['folding', 'command']
+
+source $VIMHOME/functions/sourceifexists.vim
+call SourceIfExists($VIMHOME.'/secrets.vim')
 
