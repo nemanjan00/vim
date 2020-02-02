@@ -4,7 +4,7 @@
     "coc-docker": ">=0.2.1",
     "coc-emmet": ">=1.1.4",
     "coc-emoji": ">=1.2.3",
-    "coc-eslint": ">=1.2.4",
+    "coc-eslint": ">=1.2.5",
     "coc-git": ">=1.6.18",
     "coc-html": "^1.2.1",
     "coc-json": ">=1.2.4",
@@ -17,10 +17,10 @@
     "coc-pyls": "^1.0.6",
     "coc-sh": ">=0.4.0",
     "coc-snippets": ">=2.1.17",
-    "coc-sql": ">=0.2.5",
+    "coc-sql": ">=0.2.6",
     "coc-stylelint": ">=1.1.0",
     "coc-tsserver": ">=1.4.9",
-    "coc-vimlsp": ">=0.4.4",
+    "coc-vimlsp": ">=0.4.5",
     "coc-xml": ">=1.9.5",
     "coc-yaml": ">=1.0.2"
   }

@@ -1,5 +1,5 @@
 " Important vars
-let $VIMHOME = $HOME."/.vim"
+let $VIMHOME = $HOME."/.config/nvim"
 
 "let g:ale_completion_enabled = 1
 
