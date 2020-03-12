@@ -24,20 +24,14 @@ call plug#begin('~/.vim/bundle')
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'ap/vim-css-color' " Color display inside Vim
 	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
-	Plug 'majutsushi/tagbar' " Show map of te file
 	Plug 'ntpeters/vim-better-whitespace'
 	Plug 'luochen1990/rainbow' " Rainbow Parentheses
-	Plug 'tpope/vim-speeddating' " Date increment/decrement
 	Plug 'airblade/vim-rooter' " Project root finder
 	Plug 'google/vim-searchindex' " Search result indexes
 	Plug 'bkad/camelcasemotion' " Make Vim understand camelcase
-	Plug 'dhruvasagar/vim-table-mode'
 	Plug 'liuchengxu/vista.vim'
-	Plug 'wakatime/vim-wakatime'
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'junegunn/gv.vim'
-	Plug 'vimwiki/vimwiki'
-	Plug 'prashantjois/vim-slack'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
@@ -48,26 +42,26 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'brooth/far.vim' " Find and replace
 
-	Plug 'scrooloose/nerdtree'
-	Plug 'Xuyuanp/nerdtree-git-plugin'
-
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
-	Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+
 	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'for': 'vue' }
-	Plug 'pearofducks/ansible-vim'
-	Plug 'PotatoesMaster/i3-vim-syntax'
+	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
+	Plug 'terminalnode/sway-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
-	Plug 'heavenshell/vim-jsdoc'
+	Plug 'heavenshell/vim-jsdoc', { 'for': [ 'js' ] }
 	Plug 'gisphm/vim-gitignore'
 	Plug 'chr4/nginx.vim'
-	Plug 'pangloss/vim-javascript'
+	Plug 'pangloss/vim-javascript', { 'for': [ 'js' ] }
+	Plug 'zimbatm/haproxy.vim'
+	Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
+
+	Plug 'Shougo/neosnippet.vim'
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
-	Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 
 	Plug 'scrooloose/nerdcommenter' " Better comments
 
@@ -75,9 +69,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-	Plug 'sunaku/vim-dasht' " dasht integration for VIM (for offline docs)
-	Plug 'dbeniamine/cheat.sh-vim' " cht.sh in VIM
 
 	" Autocomplete
 	Plug 'ervandew/supertab' " Tab everywhere
