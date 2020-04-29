@@ -32,6 +32,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'liuchengxu/vista.vim'
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'junegunn/gv.vim'
+	Plug 'axvr/zepl.vim'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
