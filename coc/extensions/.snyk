@@ -1,9 +1,27 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:braces:20180219':
     - coc-vetur > vue-language-server > stylus-supremacy > stylint > chokidar > anymatch > micromatch > braces:
         reason: 'DOS should not be problem in editor. '
         expires: '2019-09-09T13:10:59.080Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - coc-stylelint > stylelint-vscode > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > stylelint > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > postcss-jsx > @babel/traverse > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > stylelint > postcss-reporter > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > stylelint > table > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > postcss-jsx > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > postcss-jsx > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
+    - coc-stylelint > stylelint-vscode > postcss-jsx > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T07:54:45.199Z'
