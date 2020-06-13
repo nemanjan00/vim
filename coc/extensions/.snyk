@@ -1,9 +1,17 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.15.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:braces:20180219':
     - coc-vetur > vue-language-server > stylus-supremacy > stylint > chokidar > anymatch > micromatch > braces:
         reason: 'DOS should not be problem in editor. '
         expires: '2019-09-09T13:10:59.080Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - coc-phpls > intelephense > html-to-text > lodash:
+        patched: '2020-06-13T03:50:45.120Z'
+    - coc-sh > bash-language-server > request-promise-native > request-promise-core > lodash:
+        patched: '2020-06-13T03:50:45.120Z'
+    - coc-sh > bash-language-server > turndown > jsdom > request-promise-native > request-promise-core > lodash:
+        patched: '2020-06-13T03:50:45.120Z'
