@@ -25,6 +25,12 @@
     "coc-tsserver": ">=1.4.15",
     "coc-vimlsp": ">=0.8.0",
     "coc-xml": ">=1.11.1",
-    "coc-yaml": ">=1.0.4"
-  }
+    "coc-yaml": ">=1.0.4",
+    "snyk": "^1.339.2"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "snyk": true
 }
