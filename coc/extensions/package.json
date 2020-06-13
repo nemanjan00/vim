@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "coc-clangd": ">=0.4.2",
+    "coc-clangd": ">=0.4.7",
     "coc-css": ">=1.2.3",
     "coc-docker": ">=0.2.1",
     "coc-emmet": ">=1.1.4",
     "coc-emoji": ">=1.2.3",
-    "coc-eslint": ">=1.2.6",
+    "coc-eslint": ">=1.2.7",
     "coc-git": ">=1.7.13",
     "coc-go": ">=0.7.0",
     "coc-html": ">=1.2.4",
@@ -19,7 +19,7 @@
     "coc-pyls": "^1.0.6",
     "coc-sh": ">=0.4.0",
     "coc-snippets": ">=2.1.17",
-    "coc-sql": ">=0.2.20",
+    "coc-sql": ">=0.2.23",
     "coc-stylelint": ">=1.1.0",
     "coc-tabnine": ">=1.2.2",
     "coc-tsserver": ">=1.4.15",
