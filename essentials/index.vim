@@ -16,6 +16,9 @@ filetype plugin on " Filetype detection
 set number relativenumber " Display relative numbers
 set mouse=a " Add mouse support
 
+set cursorline
+set cursorcolumn
+
 " switch syntax highlighting on
 syntax enable
 set showmatch " show matching braces

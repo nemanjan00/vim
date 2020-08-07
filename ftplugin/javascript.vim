@@ -1,3 +1,7 @@
+if has('conceal')
+	set conceallevel=2
+endif
+
 call matchadd( 'Conceal', 'true', 0,11,{'conceal':'✓'} )
 call matchadd( 'Conceal', 'false', 0,12,{'conceal':'×'} )
 call matchadd( 'Conceal', '\zs<=\ze', 0,13,{'conceal':'≤'} )

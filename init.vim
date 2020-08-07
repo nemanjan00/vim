@@ -47,7 +47,7 @@ call plug#begin('~/.vim/bundle')
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
 
-	Plug 'leafgarland/typescript-vim'
+	"Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'for': 'vue' }
 	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 	Plug 'terminalnode/sway-vim-syntax'
@@ -62,6 +62,8 @@ call plug#begin('~/.vim/bundle')
 
 	Plug 'Shougo/neosnippet.vim'
 
+	Plug 'rhysd/vim-grammarous'
+
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
 
@@ -71,6 +73,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+	Plug 'neoclide/coc-denite'
 
 	" Autocomplete
 	Plug 'ervandew/supertab' " Tab everywhere
@@ -152,7 +155,7 @@ set laststatus=2 " show the satus line all the time
 " Conceal
 
 if has('conceal')
-	set conceallevel=2
+	set conceallevel=0
 endif
 
 "autocmd FileType * nested :call tagbar#autoopen(0)
