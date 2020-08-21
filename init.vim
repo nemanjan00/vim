@@ -35,6 +35,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'axvr/zepl.vim'
 	Plug 'retorillo/istanbul.vim'
 
+	Plug 'smerrill/vcl-vim-plugin'
+
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
 
