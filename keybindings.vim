@@ -109,7 +109,7 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call	 CocAction('fold', <f-args>)
 
-nmap <leader>tb :Tagbar<CR>
+nmap <leader>tb :Vista<CR>
 
 " Using CocList
 " Show all diagnostics

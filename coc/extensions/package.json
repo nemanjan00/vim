@@ -23,7 +23,7 @@
     "coc-sql": "^0.2.25",
     "coc-stylelint": "^1.1.0",
     "coc-tabnine": "^1.2.2",
-    "coc-tsserver": "^1.5.2",
+    "coc-tsserver": "^1.5.5",
     "coc-vimlsp": "^0.8.0",
     "coc-xml": "^1.11.1",
     "coc-yaml": "^1.0.4"
