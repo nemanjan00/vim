@@ -1,3 +1,4 @@
 {
-  "suggest.triggerAfterInsertEnter": true
+  "suggest.triggerAfterInsertEnter": true,
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

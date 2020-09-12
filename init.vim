@@ -63,8 +63,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 
 	Plug 'Shougo/neosnippet.vim'
-
-	Plug 'rhysd/vim-grammarous'
+	Plug 'nemanjan00/snippets'
+	Plug 'Shougo/neosnippet-snippets'
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
@@ -75,7 +75,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-	Plug 'neoclide/coc-denite'
+	" Plug 'neoclide/coc-denite'
 
 	" Autocomplete
 	Plug 'ervandew/supertab' " Tab everywhere
@@ -168,11 +168,6 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 " Mappings
 source $VIMHOME/keybindings.vim
 
-" Docs
-let g:dasht_filetype_docsets = {}
-
-let g:dasht_filetype_docsets['javascript'] = ['NodeJS', 'JavaScript']
-
 " Make/lint
 source $VIMHOME/functions/myonbattery.vim
 
@@ -192,13 +187,6 @@ let g:gist_post_private = 1
 let g:gist_show_privates = 1
 
 highlight NonText ctermfg=8 guifg=gray
-
-"let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      "\ 'syntax': 'markdown', 'ext': '.md'}]
-
-"let g:vimwiki_folding = 'custom'
-"let g:pandoc#folding#mode = 'stacked'
-"let g:pandoc#modules#enabled = ['folding', 'command']
 
 source $VIMHOME/functions/sourceifexists.vim
 call SourceIfExists($VIMHOME.'/secrets.vim')
