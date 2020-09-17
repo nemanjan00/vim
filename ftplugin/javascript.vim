@@ -1,3 +1,5 @@
+let b:ale_fixers = ['eslint']
+
 if has('conceal')
 	set conceallevel=2
 endif

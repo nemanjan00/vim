@@ -82,6 +82,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+	Plug 'dense-analysis/ale'
 	" Plug 'neoclide/coc-denite'
 
 	" Autocomplete
@@ -102,6 +103,8 @@ call plug#end()
 " Display spaces and tabs
 set list
 set listchars=tab:\|\ ,space:␣,eol:↲
+
+let g:ale_disable_lsp = 1
 
 " Tab control
 set noexpandtab " TABS!!!
