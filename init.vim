@@ -34,6 +34,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'junegunn/gv.vim'
 	Plug 'axvr/zepl.vim'
 	Plug 'retorillo/istanbul.vim'
+	Plug 'rhysd/clever-f.vim'
+	Plug 'RRethy/vim-illuminate'
 
 	Plug 'smerrill/vcl-vim-plugin'
 
@@ -55,7 +57,12 @@ call plug#begin('~/.vim/bundle')
 	Plug 'terminalnode/sway-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
-	Plug 'heavenshell/vim-jsdoc', { 'for': [ 'js' ] }
+
+	Plug 'heavenshell/vim-jsdoc', {
+		\ 'for': ['javascript', 'javascript.jsx','typescript'],
+		\ 'do': 'make install'
+	\}
+
 	Plug 'gisphm/vim-gitignore'
 	Plug 'chr4/nginx.vim'
 	Plug 'pangloss/vim-javascript', { 'for': [ 'js' ] }

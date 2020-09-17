@@ -12,6 +12,8 @@ map <leader>ev :e! ~/.config/nvim/init.vim<cr> " edit ~/.vimrc " Edit vim config
 
 map <leader>ft :TableFormat<cr> " Reformat markdown table
 
+map <leader>ir :IstanbulUpdate .nyc_output/*.json<cr>
+
 if has("nvim")
 	" Exit terminal mode
 	tnoremap <Esc> <C-\><C-n>
