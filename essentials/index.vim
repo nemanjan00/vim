@@ -16,6 +16,8 @@ filetype plugin on " Filetype detection
 set number relativenumber " Display relative numbers
 set mouse=a " Add mouse support
 
+set nocompatible
+
 set cursorline
 set cursorcolumn
 
