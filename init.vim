@@ -37,6 +37,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'rhysd/clever-f.vim'
 	Plug 'RRethy/vim-illuminate'
 
+	Plug 'simnalamburt/vim-mundo'
+
 	Plug 'smerrill/vcl-vim-plugin'
 
 	" Colorschemes
@@ -57,6 +59,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'terminalnode/sway-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
+	Plug 'zsiciarz/caddy.vim'
 
 	Plug 'heavenshell/vim-jsdoc', {
 		\ 'for': ['javascript', 'javascript.jsx','typescript'],
@@ -113,6 +116,10 @@ set softtabstop=4 " edit as if the tabs are 4 characters wide
 set shiftwidth=4 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
+" Persistent undo
+set undofile
+set undodir=~/.vim/undo
+
 if exists('&colorcolumn')
 	set colorcolumn=80
 endif
@@ -149,6 +156,7 @@ set mat=2 " how many tenths of a second to blink
 "set termguicolors
 
 set background=dark
+
 colorscheme dracula
 let g:airline_theme='dracula'
 
@@ -200,4 +208,7 @@ highlight NonText ctermfg=8 guifg=gray
 
 source $VIMHOME/functions/sourceifexists.vim
 call SourceIfExists($VIMHOME.'/secrets.vim')
+
+command! -bang -nargs=? -complete=dir Files
+	\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline']}), <bang>0)
 

@@ -14,9 +14,11 @@ map <leader>ft :TableFormat<cr> " Reformat markdown table
 
 map <leader>ir :IstanbulUpdate .nyc_output/*.json<cr>
 
+map <leader>mu :MundoToggle<cr>
+
 if has("nvim")
 	" Exit terminal mode
-	tnoremap <Esc> <C-\><C-n>
+	"tnoremap <Esc> <C-\><C-n>
 endif
 
 " moving up and down work as you would expect
@@ -134,8 +136,8 @@ nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 " FZF
 source $VIMHOME/functions/fzf.vim
 "map <C-p> :call FZFWithDevIcons()<cr>
-map <C-p> :FZF<cr>
-map <M-a> :Ag<cr>
+map <C-p> :Files<cr>
+map <M-a> :Rg<cr>
 
 " Gist
 map <C-g> :Gist -p<cr>
