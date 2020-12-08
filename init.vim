@@ -36,6 +36,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'retorillo/istanbul.vim'
 	Plug 'rhysd/clever-f.vim'
 	Plug 'RRethy/vim-illuminate'
+	"Plug 'wellle/context.vim'
+	Plug 'tpope/vim-dotenv'
+	Plug 'robbles/logstash.vim'
 
 	Plug 'simnalamburt/vim-mundo'
 
