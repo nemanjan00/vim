@@ -137,7 +137,7 @@ nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 source $VIMHOME/functions/fzf.vim
 "map <C-p> :call FZFWithDevIcons()<cr>
 map <C-p> :Files<cr>
-map <M-a> :Rg<cr>
+map <M-p> :Rg<cr>
 
 " Gist
 map <C-g> :Gist -p<cr>
@@ -154,7 +154,7 @@ nnoremap <leader>pi <Esc>:PlugInstall<CR>
 nnoremap <leader>pu <Esc>:PlugUpdate<CR>
 nnoremap <leader>jsd <Esc>:JsDoc<CR>
 nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-nnoremap <leader>mp <Esc>:CocList marketplace<space>
+nnoremap <leader>mp <Esc>:CocList marketplace<CR>
 nnoremap <leader>gtd <Esc>Vapdk<esc>:read !rg "TODO" -I \| cut -d":" -f2 \| awk '{print "* [ ] "$0}'<CR>o<esc>
 
 " CamelCase navigation

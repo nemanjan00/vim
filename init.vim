@@ -40,12 +40,15 @@ call plug#begin('~/.vim/bundle')
 	Plug 'tpope/vim-dotenv'
 	Plug 'robbles/logstash.vim'
 
+	Plug 'pearofducks/ansible-vim'
+
 	Plug 'simnalamburt/vim-mundo'
 
 	Plug 'smerrill/vcl-vim-plugin'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
+	Plug 'NLKNguyen/papercolor-theme'
 
 	" File managment and search
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -62,6 +65,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'terminalnode/sway-vim-syntax'
 	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
+	Plug 'elubow/cql-vim'
 	Plug 'zsiciarz/caddy.vim'
 
 	Plug 'heavenshell/vim-jsdoc', {
@@ -91,6 +95,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'dense-analysis/ale'
 	" Plug 'neoclide/coc-denite'
 
+	Plug 'alvan/vim-closetag'
+
 	" Autocomplete
 	Plug 'ervandew/supertab' " Tab everywhere
 
@@ -111,6 +117,15 @@ set list
 set listchars=tab:\|\ ,space:␣,eol:↲
 
 let g:ale_disable_lsp = 1
+" Use different highlighting to point out problems
+let g:ale_set_highlights = 1
+
+" Use the sign column (far left) to point out problems
+let g:ale_set_signs = 1
+
+" Symbols to use if g:ale_set_signs is enabled
+let g:ale_sign_error = ' X'
+let g:ale_sign_warning = ' !'
 
 " Tab control
 set noexpandtab " TABS!!!
@@ -160,6 +175,7 @@ set mat=2 " how many tenths of a second to blink
 
 set background=dark
 
+"colorscheme PaperColor
 colorscheme dracula
 let g:airline_theme='dracula'
 
