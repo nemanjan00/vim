@@ -13,6 +13,8 @@ call plug#begin('~/.vim/bundle')
 	" Dependencies
 	Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Async program runner for Vim
 
+	Plug 'junegunn/goyo.vim'
+
 	" UI
 	Plug 'kizza/actionmenu.nvim'
 	Plug 'mhinz/vim-signify' " Git changes in gutter
