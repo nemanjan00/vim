@@ -59,6 +59,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'brooth/far.vim' " Find and replace
 
 	" Lint and syntax
+	Plug 'neoclide/jsonc.vim'
 	Plug 'benekastah/neomake' " Linter and automake
 
 	"Plug 'leafgarland/typescript-vim'
