@@ -13,8 +13,6 @@ call plug#begin('~/.vim/bundle')
 	" Dependencies
 	Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Async program runner for Vim
 
-	Plug 'junegunn/goyo.vim'
-
 	" UI
 	Plug 'kizza/actionmenu.nvim'
 	Plug 'mhinz/vim-signify' " Git changes in gutter
@@ -34,35 +32,27 @@ call plug#begin('~/.vim/bundle')
 	Plug 'liuchengxu/vista.vim'
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'junegunn/gv.vim'
-	Plug 'axvr/zepl.vim'
 	Plug 'retorillo/istanbul.vim'
-	Plug 'rhysd/clever-f.vim'
 	Plug 'RRethy/vim-illuminate'
-	"Plug 'wellle/context.vim'
-	Plug 'tpope/vim-dotenv'
-	Plug 'robbles/logstash.vim'
-
-	Plug 'pearofducks/ansible-vim'
-
-	Plug 'simnalamburt/vim-mundo'
-
-	Plug 'smerrill/vcl-vim-plugin'
 
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
-	Plug 'NLKNguyen/papercolor-theme'
 
 	" File managment and search
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim' " Fuzzy find
-
 	Plug 'brooth/far.vim' " Find and replace
 
 	" Lint and syntax
-	Plug 'neoclide/jsonc.vim'
 	Plug 'benekastah/neomake' " Linter and automake
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-	"Plug 'leafgarland/typescript-vim'
+	Plug 'neoclide/jsonc.vim'
+	Plug 'smerrill/vcl-vim-plugin'
+	Plug 'tpope/vim-dotenv'
+	Plug 'robbles/logstash.vim'
+	Plug 'pearofducks/ansible-vim'
+	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'for': 'vue' }
 	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 	Plug 'terminalnode/sway-vim-syntax'
@@ -88,23 +78,17 @@ call plug#begin('~/.vim/bundle')
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
-
 	Plug 'scrooloose/nerdcommenter' " Better comments
-
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
-
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 	Plug 'dense-analysis/ale'
-	" Plug 'neoclide/coc-denite'
-
 	Plug 'alvan/vim-closetag'
 
 	" Autocomplete
 	Plug 'ervandew/supertab' " Tab everywhere
 
 	" Efficiency
-	Plug 'metakirby5/codi.vim' " Realtime interpreter
 	Plug 'editorconfig/editorconfig-vim' " Standarzided coding style for all IDEs
 	Plug 'kana/vim-arpeggio' " Chord typing
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Auto gist
