@@ -45,7 +45,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	Plug 'neoclide/jsonc.vim'
 	Plug 'smerrill/vcl-vim-plugin'
@@ -130,10 +130,10 @@ if exists('&colorcolumn')
 endif
 
 " code folding settings
-set foldmethod=syntax " fold based on indent
-set foldnestmax=10 " deepest fold is 10 levels
-set nofoldenable " don't fold by default
-set foldlevel=1
+"set foldmethod=syntax " fold based on indent
+"set foldnestmax=10 " deepest fold is 10 levels
+"set nofoldenable " don't fold by default
+"set foldlevel=1
 
 " UI/UX
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
