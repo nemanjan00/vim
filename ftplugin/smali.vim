@@ -4,7 +4,6 @@ function! SkipLineFoldExpr(lnum)
 
 	" fold begins at {$ or one line before }$
 	if curline[0:4] == '.line' || (curline == '' && nextline[0:4] == '.line')
-	"if curline[0:4] == '.line' || nextline[0:4] == '.line'
 		return 1
 	endif
 
@@ -18,7 +17,6 @@ endfunction
 
 function! SkipLineFoldText()
 	" fold text matches non-empty line
-	"return getline(v:foldstart)
 	return ''
 endfunction
 

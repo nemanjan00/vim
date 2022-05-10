@@ -56,8 +56,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'posva/vim-vue', { 'for': 'vue' }
 	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 	Plug 'terminalnode/sway-vim-syntax'
-	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
+	Plug 'Snape3058/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
+	Plug 'udalov/kotlin-vim'
 	Plug 'elubow/cql-vim'
 	Plug 'zsiciarz/caddy.vim'
 
@@ -130,10 +131,10 @@ if exists('&colorcolumn')
 endif
 
 " code folding settings
-"set foldmethod=syntax " fold based on indent
-"set foldnestmax=10 " deepest fold is 10 levels
-"set nofoldenable " don't fold by default
-"set foldlevel=1
+set foldmethod=syntax " fold based on indent
+set foldnestmax=10 " deepest fold is 10 levels
+set nofoldenable " don't fold by default
+set foldlevel=1
 
 " UI/UX
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
