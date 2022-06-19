@@ -61,6 +61,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'udalov/kotlin-vim'
 	Plug 'elubow/cql-vim'
 	Plug 'zsiciarz/caddy.vim'
+	Plug 'sirtaj/vim-openscad'
 
 	Plug 'heavenshell/vim-jsdoc', {
 		\ 'for': ['javascript', 'javascript.jsx','typescript'],
