@@ -63,10 +63,10 @@ call plug#begin('~/.vim/bundle')
 	Plug 'zsiciarz/caddy.vim'
 	Plug 'sirtaj/vim-openscad'
 
-	Plug 'heavenshell/vim-jsdoc', {
-		\ 'for': ['javascript', 'javascript.jsx','typescript'],
-		\ 'do': 'make install'
-	\}
+	"Plug 'heavenshell/vim-jsdoc', {
+		"\ 'for': ['javascript', 'javascript.jsx','typescript'],
+		"\ 'do': 'make install'
+	"\}
 
 	Plug 'gisphm/vim-gitignore'
 	Plug 'chr4/nginx.vim'
