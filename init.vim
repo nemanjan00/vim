@@ -45,7 +45,7 @@ call plug#begin('~/.vim/bundle')
 
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	Plug 'neoclide/jsonc.vim'
 	Plug 'smerrill/vcl-vim-plugin'
@@ -56,8 +56,9 @@ call plug#begin('~/.vim/bundle')
 	Plug 'posva/vim-vue', { 'for': 'vue' }
 	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
 	Plug 'terminalnode/sway-vim-syntax'
-	Plug 'kelwin/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
+	Plug 'Snape3058/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
+	Plug 'udalov/kotlin-vim'
 	Plug 'elubow/cql-vim'
 	Plug 'zsiciarz/caddy.vim'
 
@@ -217,4 +218,6 @@ call SourceIfExists($VIMHOME.'/secrets.vim')
 
 command! -bang -nargs=? -complete=dir Files
 	\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline']}), <bang>0)
+
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 
