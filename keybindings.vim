@@ -71,6 +71,11 @@ inoremap <silent><expr> <TAB>
 	\ CheckBackspace() ? "\<Tab>" :
 	\ coc#refresh()
 
+function! CheckBackspace() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]	=~# '\s'
+endfunction
+
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 inoremap <silent><expr> <c-space> coc#refresh()
