@@ -1,5 +1,6 @@
 {
   "suggest.triggerAfterInsertEnter": true,
   "coc.preferences.extensionUpdateCheck": "daily",
-  "diagnostic.displayByAle": true
+  "diagnostic.displayByAle": true,
+  "noselect": true
 }

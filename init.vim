@@ -90,7 +90,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'alvan/vim-closetag'
 
 	" Autocomplete
-	Plug 'ervandew/supertab' " Tab everywhere
+	"Plug 'ervandew/supertab' " Tab everywhere
 
 	" Efficiency
 	Plug 'editorconfig/editorconfig-vim' " Standarzided coding style for all IDEs
