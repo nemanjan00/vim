@@ -63,6 +63,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'zsiciarz/caddy.vim'
 	Plug 'sirtaj/vim-openscad'
 
+	Plug 'yaegassy/coc-jsdoc', {'do': 'yarn install --frozen-lockfile'}
+
 	"Plug 'heavenshell/vim-jsdoc', {
 		"\ 'for': ['javascript', 'javascript.jsx','typescript'],
 		"\ 'do': 'make install'
