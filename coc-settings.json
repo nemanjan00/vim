@@ -2,5 +2,7 @@
   "suggest.triggerAfterInsertEnter": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.displayByAle": true,
-  "noselect": true
+  "noselect": true,
+  "javascript.suggestionActions.enabled": false,
+  "tsserver.disableAutomaticTypeAcquisition": false
 }

@@ -89,14 +89,14 @@ call plug#begin('~/.vim/bundle')
 	Plug 'dense-analysis/ale'
 	Plug 'alvan/vim-closetag'
 
-	" Autocomplete
-	"Plug 'ervandew/supertab' " Tab everywhere
-
 	" Efficiency
 	Plug 'editorconfig/editorconfig-vim' " Standarzided coding style for all IDEs
 	Plug 'kana/vim-arpeggio' " Chord typing
 	Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim' " Auto gist
 	Plug 'jamessan/vim-gnupg' " Transparent gpg file editing
+
+	" Golang
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 	" Must be loaded at the end
 	Plug 'ryanoasis/vim-devicons' " Icons for file formats
