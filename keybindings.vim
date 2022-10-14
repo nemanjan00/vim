@@ -16,6 +16,8 @@ map <leader>ir :IstanbulUpdate .nyc_output/*.json<cr>
 
 map <leader>mu :MundoToggle<cr>
 
+map <leader>sd :call CocAction('doHover')<cr>
+
 if has("nvim")
 	" Exit terminal mode
 	"tnoremap <Esc> <C-\><C-n>
