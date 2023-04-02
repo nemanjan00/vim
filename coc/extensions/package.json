@@ -15,7 +15,7 @@
     "coc-marketplace": "^1.7.0",
     "coc-neosnippet": "^1.2.2",
     "coc-pairs": "^1.2.21",
-    "coc-phpls": "^2.1.10",
+    "coc-phpls": "^2.2.3",
     "coc-post": "^0.2.0",
     "coc-pyls": "^1.0.6",
     "coc-sh": "^0.5.1",
