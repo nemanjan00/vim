@@ -224,3 +224,6 @@ command! -bang -nargs=? -complete=dir Files
 
 let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 
+" Set the filetype based on the file's extension, but only if
+" 'filetype' has not already been set
+au BufRead,BufNewFile *.ksy setfiletype yaml
