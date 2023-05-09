@@ -9,7 +9,7 @@ function! DoRemote(arg)
 	UpdateRemotePlugins
 endfunction
 
-"set termguicolors
+set termguicolors
 set t_Co=256 " 256 Colors in terminal
 set autoread " detect when a file is changed
 filetype plugin on " Filetype detection
