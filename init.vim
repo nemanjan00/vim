@@ -35,6 +35,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'retorillo/istanbul.vim'
 	Plug 'RRethy/vim-illuminate'
 
+	Plug 'metakirby5/codi.vim' " Realtime runtime
+
 	" Colorschemes
 	Plug 'dracula/vim' " Dracula
 
@@ -169,6 +171,8 @@ set background=dark
 "colorscheme PaperColor
 colorscheme dracula
 let g:airline_theme='dracula'
+
+hi Comment guifg=#ABCDEF
 
 " airline
 let g:airline_powerline_fonts = 0

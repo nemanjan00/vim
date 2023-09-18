@@ -152,6 +152,7 @@ nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
 source $VIMHOME/functions/fzf.vim
 "map <C-p> :call FZFWithDevIcons()<cr>
 map <C-p> :Files<cr>
+map <C-b> :b 
 map <M-p> :Rg<cr>
 
 " Gist
