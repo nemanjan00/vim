@@ -25,7 +25,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'ap/vim-css-color' " Color display inside Vim
 	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
 	Plug 'ntpeters/vim-better-whitespace'
-	Plug 'luochen1990/rainbow' " Rainbow Parentheses
+	"Plug 'luochen1990/rainbow' " Rainbow Parentheses
 	Plug 'airblade/vim-rooter' " Project root finder
 	Plug 'google/vim-searchindex' " Search result indexes
 	Plug 'bkad/camelcasemotion' " Make Vim understand camelcase
@@ -34,6 +34,8 @@ call plug#begin('~/.vim/bundle')
 	Plug 'junegunn/gv.vim'
 	Plug 'retorillo/istanbul.vim'
 	Plug 'RRethy/vim-illuminate'
+
+	"Plug 'github/copilot.vim'
 
 	Plug 'metakirby5/codi.vim' " Realtime runtime
 
@@ -48,6 +50,8 @@ call plug#begin('~/.vim/bundle')
 	" Lint and syntax
 	Plug 'benekastah/neomake' " Linter and automake
 	"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+	Plug 'jwalton512/vim-blade'
 
 	Plug 'neoclide/jsonc.vim'
 	Plug 'smerrill/vcl-vim-plugin'
