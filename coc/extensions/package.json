@@ -21,7 +21,7 @@
     "coc-sh": "^0.5.1",
     "coc-snippets": "^2.1.28",
     "coc-sql": "^0.3.3",
-    "coc-stylelint": "^1.1.0",
+    "coc-stylelint": "^1.2.0",
     "coc-tsserver": "^1.5.5",
     "coc-vimlsp": "^0.10.1",
     "coc-xml": "^1.12.2",
