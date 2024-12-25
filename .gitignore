@@ -4,6 +4,7 @@
 /swap
 /colors
 /spell
+/undo
 
 # Coc
 /coc/*
