@@ -22,12 +22,13 @@
     "coc-snippets": "^2.1.28",
     "coc-sql": "^0.3.3",
     "coc-stylelint": "^1.1.0",
-    "coc-tsserver": "^1.5.5",
+    "coc-tsserver": ">=2.1.4",
     "coc-vimlsp": "^0.10.1",
     "coc-xml": "^1.12.2",
     "coc-yaml": "^1.0.5"
   },
   "devDependencies": {
     "yarn-upgrade-all": "^0.5.4"
-  }
+  },
+  "lastUpdate": 1735133715833
 }
