@@ -92,6 +92,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+map <silent> cc :CopilotChatOpen<cr>
+
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -192,4 +194,7 @@ vnoremap <Space> zf
 nmap J :tabr<CR>
 nmap K :tabl<CR>
 nmap L :tabnew<CR>
+
+imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 

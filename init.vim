@@ -35,7 +35,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'retorillo/istanbul.vim'
 	Plug 'RRethy/vim-illuminate'
 
-	"Plug 'github/copilot.vim'
+	Plug 'github/copilot.vim'
 
 	Plug 'metakirby5/codi.vim' " Realtime runtime
 
@@ -52,6 +52,16 @@ call plug#begin('~/.vim/bundle')
 	"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	Plug 'jwalton512/vim-blade'
+
+	"Plug 'huggingface/llm.nvim'
+	"Plug 'github/copilot.vim'
+
+	"Plug 'hrsh7th/nvim-cmp'
+	"Plug 'hrsh7th/cmp-nvim-lsp'
+	"Plug 'Jacob411/Ollama-Copilot'
+
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
 	Plug 'neoclide/jsonc.vim'
 	Plug 'smerrill/vcl-vim-plugin'
@@ -235,3 +245,9 @@ let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
 " Set the filetype based on the file's extension, but only if
 " 'filetype' has not already been set
 au BufRead,BufNewFile *.ksy setfiletype yaml
+
+lua << EOF
+require("CopilotChat").setup {
+	-- See Configuration section for options
+}
+EOF
