@@ -10,12 +10,13 @@ source $VIMHOME/essentials/index.vim
 call plug#begin('~/.vim/bundle')
 	" UI
 	Plug 'kizza/actionmenu.nvim'
-	Plug 'mhinz/vim-signify' " Git changes in gutter
+	Plug 'lewis6991/gitsigns.nvim' " Git changes in gutter
 	Plug 'tpope/vim-fugitive' " Git helper
 	Plug 'rhysd/committia.vim'
 	Plug 'tpope/vim-repeat' " Better repeat for key mappings
 	Plug 'junegunn/vim-peekaboo' " Show content of registers
-	Plug 'vim-airline/vim-airline' " Status line
+	Plug 'nvim-lualine/lualine.nvim' " Status line
+	Plug 'nvim-tree/nvim-web-devicons' " Icons for lualine
 	Plug 'jeffkreeftmeijer/vim-numbertoggle' " Switch normal and relative numbers when go to INSERT/NORMAL mode
 	Plug 'ap/vim-css-color' " Color display inside Vim
 	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
@@ -144,19 +145,11 @@ set background=dark
 
 "colorscheme PaperColor
 colorscheme dracula
-let g:airline_theme='dracula'
 
 hi Comment guifg=#ABCDEF
 
-" airline
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
 hi Normal guibg=NONE ctermbg=NONE
 set noshowmode
-
-let g:airline_powerline_fonts = 1
 
 set laststatus=2 " show the satus line all the time
 
@@ -167,9 +160,6 @@ if has('conceal')
 endif
 
 "autocmd FileType * nested :call tagbar#autoopen(0)
-
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " Mappings
 source $VIMHOME/keybindings.vim
@@ -196,6 +186,22 @@ au BufRead,BufNewFile *.ksy setfiletype yaml
 lua << EOF
 require("CopilotChat").setup {
 	-- See Configuration section for options
+}
+
+require("gitsigns").setup()
+
+require("lualine").setup {
+	options = {
+		theme = "dracula",
+	},
+	sections = {
+		lualine_b = {
+			"branch",
+			"diff",
+			{ "diagnostics", sources = { "coc" } },
+		},
+		lualine_x = { "g:coc_status", "encoding", "fileformat", "filetype" },
+	},
 }
 
 -- Treesitter (main branch): install parsers, enable highlighting
