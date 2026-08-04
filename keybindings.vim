@@ -16,7 +16,7 @@ map <leader>ir :IstanbulUpdate .nyc_output/*.json<cr>
 
 map <leader>mu :MundoToggle<cr>
 
-map <leader>sd :call CocAction('doHover')<cr>
+map <leader>sd <cmd>lua vim.lsp.buf.hover()<cr>
 
 if has("nvim")
 	" Exit terminal mode
@@ -47,93 +47,47 @@ map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
-" Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" remap for complete to use tab and <cr>
-	inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <TAB>
-	\ coc#pum#visible() ? coc#pum#next(1):
-	\ CheckBackspace() ? "\<Tab>" :
-	\ coc#refresh()
-
-function! CheckBackspace() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]	=~# '\s'
-endfunction
-
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-inoremap <silent><expr> <c-space> coc#refresh()
+" Completion (<Tab>/<CR>/<C-Space>) is configured in nvim-cmp, see init.vim
 
 " Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nnoremap <silent> [c <cmd>lua vim.diagnostic.jump({count = -1, float = true})<CR>
+nnoremap <silent> ]c <cmd>lua vim.diagnostic.jump({count = 1, float = true})<CR>
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-map <silent> cc :CopilotChatOpen<cr>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gy <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 
 " Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-	if &filetype == 'vim'
-		execute 'h '.expand('<cword>')
-	else
-		call CocAction('doHover')
-	endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 
-" Remap for format selected region
-vmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+" Remap for format
+vnoremap <leader>f gq
+nnoremap <leader>f <cmd>lua vim.lsp.buf.format({async = true})<CR>
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a	<Plug>(coc-codeaction-selected)
-nmap <leader>a	<Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+" Code actions
+vnoremap <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>ac <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>qf <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call	 CocAction('fold', <f-args>)
+command! -nargs=0 Format :lua vim.lsp.buf.format()
 
 nmap <leader>tb :Vista<CR>
 
-" Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a	:<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e	:<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c	:<C-u>CocList commands<cr>
+nnoremap <silent> <space>a	<cmd>lua vim.diagnostic.setqflist()<cr>
+" Manage language servers
+nnoremap <silent> <space>e	:Mason<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o	:<C-u>CocList outline<cr>
+nnoremap <silent> <space>o	<cmd>lua vim.lsp.buf.document_symbol()<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s	:<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j	:<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k	:<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p	:<C-u>CocListResume<CR>
+nnoremap <silent> <space>s	<cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 " FZF
 source $VIMHOME/functions/fzf.vim
@@ -146,18 +100,14 @@ map <M-p> :Rg<cr>
 map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 
-" Action menu
-source $VIMHOME/functions/actions.vim
-
-nnoremap <silent> <Leader>s :call ActionMenuCodeActions()<CR>
+nnoremap <silent> <Leader>s <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
 nnoremap <leader>td <Esc>:TODOToggle<CR>
 nnoremap <leader>nt <Esc>:NERDTree<CR>
 nnoremap <leader>pi <Esc>:PlugInstall<CR>
 nnoremap <leader>pu <Esc>:PlugUpdate<CR>
-nnoremap <leader>jsd <Esc>:JsDoc<CR>
+nnoremap <leader>jsd <Esc>:Neogen<CR>
 nnoremap <leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
-nnoremap <leader>mp <Esc>:CocList marketplace<CR>
 nnoremap <leader>gtd <Esc>Vapdk<esc>:read !rg "TODO" -I \| cut -d":" -f2 \| awk '{print "* [ ] "$0}'<CR>o<esc>
 
 " CamelCase navigation
@@ -172,10 +122,6 @@ sunmap e
 sunmap ge
 
 nmap <leader>ch <Esc>:Cheat<Space>
-
-nmap J :tabr<CR>
-nmap K :tabl<CR>
-nmap L :tabnew<CR>
 
 imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
