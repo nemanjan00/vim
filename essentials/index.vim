@@ -1,10 +1,14 @@
+" No plugin uses the python provider; skip it (and its startup shell-out).
+" If one ever needs it again: delete the line below and uncomment the pin.
+let g:loaded_python3_provider = 0
+
 " Pin the python provider to the global asdf python so virtualenvs and
 " per-project .tool-versions can't break it (same trick as node in init.vim)
-let s:python = substitute(system("cd ~ && asdf which python3 2>/dev/null"), "\n", '', 'g')
-if v:shell_error != 0 || empty(s:python)
-	let s:python = substitute(system("which python3"), "\n", '', 'g')
-endif
-let g:python3_host_prog = s:python
+"let s:python = substitute(system("cd ~ && asdf which python3 2>/dev/null"), "\n", '', 'g')
+"if v:shell_error != 0 || empty(s:python)
+"	let s:python = substitute(system("which python3"), "\n", '', 'g')
+"endif
+"let g:python3_host_prog = s:python
 
 set termguicolors
 set autoread " detect when a file is changed
