@@ -1,9 +1,10 @@
-" Figume out the system Python for Neovim.
-if exists("$VIRTUAL_ENV")
-	let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-	let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+" Pin the python provider to the global asdf python so virtualenvs and
+" per-project .tool-versions can't break it (same trick as node in init.vim)
+let s:python = substitute(system("cd ~ && asdf which python3 2>/dev/null"), "\n", '', 'g')
+if v:shell_error != 0 || empty(s:python)
+	let s:python = substitute(system("which python3"), "\n", '', 'g')
 endif
+let g:python3_host_prog = s:python
 
 function! DoRemote(arg)
 	UpdateRemotePlugins
