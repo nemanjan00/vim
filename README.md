@@ -48,7 +48,7 @@ What each plugin provides and how to trigger it. Leader is `,`.
 * **vim-rooter** — auto-`cd`s to the project root (nearest `.git`)
 * **vim-searchindex** — shows `[3/17]` match position when searching
 * **camelcasemotion** — `w`/`b`/`e`/`ge` stop at camelCase/snake_case boundaries; `ci,w` changes one segment
-* **vista.vim** — symbol outline sidebar from LSP: `<leader>tb` or the `tb` chord
+* **aerial.nvim** — symbol outline sidebar from LSP/treesitter: `<leader>tb` or the `tb` chord
 * **splitjoin.vim** — `gS` splits a one-liner into multiple lines, `gJ` joins them back
 * **gv.vim** — `:GV` commit browser (fugitive-based)
 * **istanbul.vim** — JS test coverage overlay: `<leader>ir` reads `.nyc_output`
@@ -59,7 +59,7 @@ What each plugin provides and how to trigger it. Leader is `,`.
 ### Files and search
 
 * **fzf** + **fzf.vim** — `<C-p>` files (ripgrep source), `<M-p>` live grep, `<C-b>` buffer switch; also `:History`, `:Commits`, `:Maps`
-* **far.vim** — project-wide find & replace with preview: `:Far foo bar **/*.js` then `:Fardo`
+* **grug-far.nvim** — project-wide find & replace with live ripgrep preview: `:GrugFar`
 
 ### Syntax
 
@@ -86,8 +86,8 @@ What each plugin provides and how to trigger it. Leader is `,`.
 
 ### Efficiency
 
-* **editorconfig-vim** — honors `.editorconfig` per project
-* **vim-arpeggio** — chord mappings: `jk`→Esc, `fn`→function, `rq`→require, `ct`→const, `lt`→let, `wq`→save-quit, `tb`→Vista
+* **vim-arpeggio** — chord mappings: `jk`→Esc, `fn`→function, `rq`→require, `ct`→const, `lt`→let, `wq`→save-quit, `tb`→Aerial
+* `.editorconfig` is honored per project by neovim's built-in support (no plugin needed)
 * **gist-vim** (+ **webapi-vim**) — `<C-g>` posts buffer as private gist, `<C-M-g>` public
 * **vim-gnupg** — transparently edits `*.gpg` encrypted files
 
@@ -97,7 +97,6 @@ What each plugin provides and how to trigger it. Leader is `,`.
 
 ### Misc
 
-* **vim-devicons** — filetype icons for fzf and friends
 * **vim-checkbox** — `<leader>tt` toggles `- [ ]` checkboxes in markdown
 
 ## Install

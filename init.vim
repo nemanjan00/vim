@@ -23,7 +23,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'airblade/vim-rooter' " Project root finder
 	Plug 'google/vim-searchindex' " Search result indexes
 	Plug 'bkad/camelcasemotion' " Make Vim understand camelcase
-	Plug 'liuchengxu/vista.vim'
+	Plug 'stevearc/aerial.nvim' " Symbol outline sidebar (LSP/treesitter)
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'junegunn/gv.vim', { 'on': 'GV' }
 	Plug 'retorillo/istanbul.vim', { 'on': ['IstanbulUpdate', 'IstanbulToggle'] }
@@ -37,7 +37,7 @@ call plug#begin('~/.vim/bundle')
 	" File managment and search
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim' " Fuzzy find
-	Plug 'brooth/far.vim', { 'on': ['Far', 'Farp', 'F', 'Fardo', 'Farundo', 'Refar'] } " Find and replace
+	Plug 'MagicDuck/grug-far.nvim' " Find and replace (ripgrep-powered)
 
 	" Lint and syntax
 	Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
@@ -75,7 +75,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'danymat/neogen' " Doc comment generation (:Neogen)
 
 	" Efficiency
-	Plug 'editorconfig/editorconfig-vim' " Standarzided coding style for all IDEs
+	" (.editorconfig support is built into nvim 0.9+, no plugin needed)
 	Plug 'kana/vim-arpeggio' " Chord typing
 	Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim', { 'on': 'Gist' } " Auto gist
 	Plug 'jamessan/vim-gnupg' " Transparent gpg file editing
@@ -83,8 +83,6 @@ call plug#begin('~/.vim/bundle')
 	" Golang
 	Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 
-	" Must be loaded at the end
-	Plug 'ryanoasis/vim-devicons' " Icons for file formats
 	Plug 'jkramer/vim-checkbox', { 'for': 'markdown' } " For toggling md checkboxes
 call plug#end()
 
@@ -116,9 +114,6 @@ let g:go_gopls_enabled = 0
 let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
-
-" Vista: use native LSP for symbols
-let g:vista_default_executive = 'nvim_lsp'
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -262,6 +257,10 @@ require("nvim-autopairs").setup {}
 cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 require("neogen").setup { snippet_engine = "nvim" }
+
+require("grug-far").setup {}
+
+require("aerial").setup {}
 
 -- Treesitter (main branch): install parsers, enable highlighting
 -- for any buffer that has a parser, fall back to regex syntax otherwise

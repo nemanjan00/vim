@@ -34,7 +34,7 @@ try
 	call arpeggio#map('i', '', 0, 'md', 'module.exports = () => {}<Esc>i')
 	call arpeggio#map('i', '', 0, 'ct', 'const')
 	call arpeggio#map('i', '', 0, 'lt', 'let')
-	call arpeggio#map('in', '', 0, 'tb', '<Esc>:Vista<CR>')
+	call arpeggio#map('in', '', 0, 'tb', '<Esc>:AerialToggle<CR>')
 endtry
 
 " window splitting and moving
@@ -76,7 +76,7 @@ nnoremap <leader>qf <cmd>lua vim.lsp.buf.code_action()<CR>
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :lua vim.lsp.buf.format()
 
-nmap <leader>tb :Vista<CR>
+nmap <leader>tb :AerialToggle<CR>
 
 " Show all diagnostics
 nnoremap <silent> <space>a	<cmd>lua vim.diagnostic.setqflist()<cr>
