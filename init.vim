@@ -1,8 +1,6 @@
 " Important vars
 let $VIMHOME = $HOME."/.config/nvim"
 
-"let g:ale_completion_enabled = 1
-
 " Should be defaults
 source $VIMHOME/essentials/index.vim
 
@@ -10,9 +8,6 @@ source $VIMHOME/essentials/index.vim
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/bundle')
-	" Dependencies
-	Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Async program runner for Vim
-
 	" UI
 	Plug 'kizza/actionmenu.nvim'
 	Plug 'mhinz/vim-signify' " Git changes in gutter
@@ -48,7 +43,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'brooth/far.vim' " Find and replace
 
 	" Lint and syntax
-	Plug 'benekastah/neomake' " Linter and automake
 	"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 	Plug 'jwalton512/vim-blade'
@@ -92,17 +86,12 @@ call plug#begin('~/.vim/bundle')
 	Plug 'zimbatm/haproxy.vim'
 	Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
 
-	Plug 'Shougo/neosnippet.vim'
-	Plug 'nemanjan00/snippets'
-	Plug 'Shougo/neosnippet-snippets'
-
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
 	Plug 'scrooloose/nerdcommenter' " Better comments
 	Plug 'mattn/emmet-vim', { 'for': ['html', 'php', 'xml', 'ejs', 'vue', 'mst'] } " Fast HTML
 	Plug 'tpope/vim-surround' " For changing quotes/xml tags
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-	Plug 'dense-analysis/ale'
 	Plug 'alvan/vim-closetag'
 
 	" Efficiency
@@ -122,17 +111,6 @@ call plug#end()
 " Display spaces and tabs
 set list
 set listchars=tab:\|\ ,space:␣,eol:↲
-
-let g:ale_disable_lsp = 1
-" Use different highlighting to point out problems
-let g:ale_set_highlights = 1
-
-" Use the sign column (far left) to point out problems
-let g:ale_set_signs = 1
-
-" Symbols to use if g:ale_set_signs is enabled
-let g:ale_sign_error = ' X'
-let g:ale_sign_warning = ' !'
 
 " Tab control
 set noexpandtab " TABS!!!
@@ -213,19 +191,6 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 
 " Mappings
 source $VIMHOME/keybindings.vim
-
-" Make/lint
-source $VIMHOME/functions/myonbattery.vim
-
-let g:neomake_java_enabled_makers = []
-
-try
-	if MyOnBattery()
-		call neomake#configure#automake('rw')
-	else
-		call neomake#configure#automake('rnw', 1000)
-	endif
-endtry
 
 " Gist
 let g:gist_open_browser_after_post = 1
