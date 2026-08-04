@@ -117,12 +117,6 @@ if exists('&colorcolumn')
 	set colorcolumn=80
 endif
 
-" code folding settings
-set foldmethod=syntax " fold based on indent
-set foldnestmax=10 " deepest fold is 10 levels
-set nofoldenable " don't fold by default
-set foldlevel=1
-
 " UI/UX
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
 autocmd BufNewFile *.c silent! 0r $VIMHOME/templates/c.tpl
@@ -204,7 +198,7 @@ require("CopilotChat").setup {
 	-- See Configuration section for options
 }
 
--- Treesitter (main branch): install parsers, enable highlighting + folds
+-- Treesitter (main branch): install parsers, enable highlighting
 -- for any buffer that has a parser, fall back to regex syntax otherwise
 require("nvim-treesitter").install {
 	"bash", "c", "css", "dockerfile", "gitignore", "go", "html",
@@ -216,9 +210,8 @@ require("nvim-treesitter").install {
 vim.api.nvim_create_autocmd("FileType", {
 	callback = function(args)
 		local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
-		if lang and pcall(vim.treesitter.start, args.buf, lang) then
-			vim.wo.foldmethod = "expr"
-			vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		if lang then
+			pcall(vim.treesitter.start, args.buf, lang)
 		end
 	end,
 })

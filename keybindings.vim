@@ -173,9 +173,6 @@ sunmap ge
 
 nmap <leader>ch <Esc>:Cheat<Space>
 
-nnoremap <leader> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
-
 nmap J :tabr<CR>
 nmap K :tabl<CR>
 nmap L :tabnew<CR>
