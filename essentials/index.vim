@@ -6,18 +6,11 @@ if v:shell_error != 0 || empty(s:python)
 endif
 let g:python3_host_prog = s:python
 
-function! DoRemote(arg)
-	UpdateRemotePlugins
-endfunction
-
 set termguicolors
-set t_Co=256 " 256 Colors in terminal
 set autoread " detect when a file is changed
 filetype plugin on " Filetype detection
 set number relativenumber " Display relative numbers
 set mouse=a " Add mouse support
-
-set nocompatible
 
 set cursorline
 set cursorcolumn
@@ -35,5 +28,4 @@ set encoding=utf8
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
 

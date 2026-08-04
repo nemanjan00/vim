@@ -149,14 +149,6 @@ set noshowmode
 
 set laststatus=2 " show the satus line all the time
 
-" Conceal
-
-if has('conceal')
-	set conceallevel=0
-endif
-
-"autocmd FileType * nested :call tagbar#autoopen(0)
-
 " Mappings
 source $VIMHOME/keybindings.vim
 
