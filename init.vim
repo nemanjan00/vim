@@ -71,7 +71,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'for': 'vue' }
 	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
-	Plug 'terminalnode/sway-vim-syntax'
+	"Plug 'terminalnode/sway-vim-syntax'
 	Plug 'Snape3058/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
 	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
 	Plug 'udalov/kotlin-vim'
