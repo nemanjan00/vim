@@ -43,7 +43,7 @@ call plug#begin('~/.vim/bundle')
 	Plug 'brooth/far.vim' " Find and replace
 
 	" Lint and syntax
-	"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
 
 	Plug 'jwalton512/vim-blade'
 
@@ -57,18 +57,11 @@ call plug#begin('~/.vim/bundle')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
-	Plug 'neoclide/jsonc.vim'
 	Plug 'smerrill/vcl-vim-plugin'
 	Plug 'tpope/vim-dotenv'
 	Plug 'robbles/logstash.vim'
 	Plug 'pearofducks/ansible-vim'
-	Plug 'leafgarland/typescript-vim'
-	Plug 'posva/vim-vue', { 'for': 'vue' }
-	Plug 'pearofducks/ansible-vim', { 'for': 'ansible' }
-	"Plug 'terminalnode/sway-vim-syntax'
 	Plug 'Snape3058/vim-smali', { 'for': 'smali' } " Syntax highlighting for smali
-	Plug 'StanAngeloff/php.vim', { 'for': 'php' } " PHP syntax
-	Plug 'udalov/kotlin-vim'
 	Plug 'elubow/cql-vim'
 	Plug 'zsiciarz/caddy.vim'
 	Plug 'sirtaj/vim-openscad'
@@ -80,11 +73,8 @@ call plug#begin('~/.vim/bundle')
 		"\ 'do': 'make install'
 	"\}
 
-	Plug 'gisphm/vim-gitignore'
-	Plug 'chr4/nginx.vim'
-	Plug 'pangloss/vim-javascript', { 'for': [ 'js' ] }
 	Plug 'zimbatm/haproxy.vim'
-	Plug 'plasticboy/vim-markdown', { 'for': ['markdown']}
+	Plug 'plasticboy/vim-markdown', { 'for': ['markdown']} " kept for :TableFormat
 
 	" Code generation and helpers
 	Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown']} " TOC for README.md
@@ -138,8 +128,6 @@ autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
 autocmd BufNewFile *.c silent! 0r $VIMHOME/templates/c.tpl
 
 let g:rainbow_active=1
-
-let g:vue_disable_pre_processors=1
 
 " Use linux clipboard
 set clipboard+=unnamedplus
@@ -215,4 +203,23 @@ lua << EOF
 require("CopilotChat").setup {
 	-- See Configuration section for options
 }
+
+-- Treesitter (main branch): install parsers, enable highlighting + folds
+-- for any buffer that has a parser, fall back to regex syntax otherwise
+require("nvim-treesitter").install {
+	"bash", "c", "css", "dockerfile", "gitignore", "go", "html",
+	"javascript", "json", "kotlin", "lua", "markdown",
+	"markdown_inline", "nginx", "php", "python", "scss", "sql",
+	"tsx", "typescript", "vim", "vimdoc", "vue", "yaml",
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+		if lang and pcall(vim.treesitter.start, args.buf, lang) then
+			vim.wo.foldmethod = "expr"
+			vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		end
+	end,
+})
 EOF
