@@ -35,8 +35,7 @@ Requirements:
 * neovim (recent; treesitter uses the `main` branch which needs 0.11+)
 * node (copilot.vim and the JS-based language servers)
 * `tree-sitter` CLI (`npm install -g tree-sitter-cli` or `pacman -S tree-sitter-cli`) — needed to compile treesitter parsers
-* `ag` (the_silver_searcher) — default fzf file source
-* `rg` (ripgrep) — `:Rg` grep
+* `rg` (ripgrep) — fzf file source and `:Rg` grep
 
 Then:
 

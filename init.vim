@@ -20,7 +20,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'ap/vim-css-color' " Color display inside Vim
 	Plug 'urbainvaes/vim-remembrall' " Give a peek at key bindings
 	Plug 'ntpeters/vim-better-whitespace'
-	"Plug 'luochen1990/rainbow' " Rainbow Parentheses
 	Plug 'airblade/vim-rooter' " Project root finder
 	Plug 'google/vim-searchindex' " Search result indexes
 	Plug 'bkad/camelcasemotion' " Make Vim understand camelcase
@@ -44,13 +43,6 @@ call plug#begin('~/.vim/bundle')
 	Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'}
 
 	Plug 'jwalton512/vim-blade', { 'for': 'blade' }
-
-	"Plug 'huggingface/llm.nvim'
-	"Plug 'github/copilot.vim'
-
-	"Plug 'hrsh7th/nvim-cmp'
-	"Plug 'hrsh7th/cmp-nvim-lsp'
-	"Plug 'Jacob411/Ollama-Copilot'
 
 	Plug 'smerrill/vcl-vim-plugin', { 'for': 'vcl' }
 	Plug 'tpope/vim-dotenv'
@@ -119,8 +111,6 @@ endif
 autocmd BufNewFile *.html silent! 0r $VIMHOME/templates/html.tpl
 autocmd BufNewFile *.c silent! 0r $VIMHOME/templates/c.tpl
 
-let g:rainbow_active=1
-
 " vim-go: LSP duties (gopls, gd, K, completion) are handled natively
 let g:go_gopls_enabled = 0
 let g:go_def_mapping_enabled = 0
@@ -183,7 +173,7 @@ call SourceIfExists($VIMHOME.'/secrets.vim')
 command! -bang -nargs=? -complete=dir Files
 	\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--info=inline']}), <bang>0)
 
-let $FZF_DEFAULT_COMMAND = 'ag --hidden -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git"'
 
 " Set the filetype based on the file's extension, but only if
 " 'filetype' has not already been set

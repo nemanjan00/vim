@@ -9,12 +9,7 @@ cd ./.config/nvim
 
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+# Plugins and undo history live under ~/.vim
 ln -s ~/.config/nvim ~/.vim
-ln -s ~/.config/nvim/coc ~/.config/coc
-ln -s ~/.config/nvim/init.vim ~/.vimrc
 
-cd ~/.config/coc/extensions
-yarn
-
-cd ~/.vim
-
+echo "Done. Open nvim and run :PlugInstall — treesitter parsers and language servers install themselves on first start."

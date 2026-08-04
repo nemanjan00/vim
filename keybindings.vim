@@ -14,8 +14,6 @@ map <leader>ft :TableFormat<cr> " Reformat markdown table
 
 map <leader>ir :IstanbulUpdate .nyc_output/*.json<cr>
 
-map <leader>mu :MundoToggle<cr>
-
 map <leader>sd <cmd>lua vim.lsp.buf.hover()<cr>
 
 if has("nvim")
@@ -90,8 +88,6 @@ nnoremap <silent> <space>o	<cmd>lua vim.lsp.buf.document_symbol()<cr>
 nnoremap <silent> <space>s	<cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 
 " FZF
-source $VIMHOME/functions/fzf.vim
-"map <C-p> :call FZFWithDevIcons()<cr>
 map <C-p> :Files<cr>
 map <C-b> :b 
 map <M-p> :Rg<cr>
@@ -101,9 +97,6 @@ map <C-g> :Gist -p<cr>
 map <C-M-g> :Gist<cr>
 
 nnoremap <silent> <Leader>s <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>h <Esc>:call HardTimeToggle()<CR>
-nnoremap <leader>td <Esc>:TODOToggle<CR>
-nnoremap <leader>nt <Esc>:NERDTree<CR>
 nnoremap <leader>pi <Esc>:PlugInstall<CR>
 nnoremap <leader>pu <Esc>:PlugUpdate<CR>
 nnoremap <leader>jsd <Esc>:Neogen<CR>
@@ -120,8 +113,6 @@ sunmap w
 sunmap b
 sunmap e
 sunmap ge
-
-nmap <leader>ch <Esc>:Cheat<Space>
 
 imap <silent><script><expr> <S-Tab> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
