@@ -217,6 +217,14 @@ vim.diagnostic.config {
 	},
 }
 
+-- Float the diagnostic under the cursor after it rests (coc did this itself)
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+	end,
+})
+
 -- Completion: Tab/Enter behavior matching the old coc setup
 local cmp = require("cmp")
 
